@@ -1,3 +1,29 @@
 {
-  "title": "제품"
+  "title": "Stay Secure,\nExplore Freely",
+  "subtitle": "안전한 지갑 솔루션으로 web3 경험을 강화할 수 있습니다. \n다가오는 새로운 경제 시대를 ABC와 함께 준비하세요.",
+  "company_name": "AhnLab Blockchain Company",
+  "company_detail": "우연으로 얻을 수 없는 신뢰라는 명성",
+    "item": {
+      "wallet": {
+        "title": "ABC Wallet",
+        "highlight": "편리하고 안전한 Web3 \n지갑 서비스",
+        "detail": "하나의 앱에서 만나 더 강력해진 ABC Wallet과 T \nwallet을 경험할 수 있습니다."
+      },
+      "waas": {
+        "title": "ABC WaaS",
+        "highlight": "기업용 지갑 솔루션",
+        "detail": "ABC WaaS와 함께 Web2에서 Web3로 손쉽게 전\n환할 수 있습니다."
+      },
+      "BIC": {
+        "title": "BICScan",
+        "highlight": "블록체인 디펜스 \n인텔리전스 플랫폼",
+        "detail": "블록체인 인텔리전스 | 멀티엔진 | \n리스크 평가 시스템"
+      },
+      "KYT": {
+        "title": "완벽한 KYT 솔루션",
+        "highlight": "Coming Soon",
+        "detail": ""
+      }
+    },
+  "about_us": "Unlock Your Freedom Securely. \nExplore with AhnLab Blockchain Company."
 }

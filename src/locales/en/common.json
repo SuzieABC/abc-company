@@ -1,4 +1,27 @@
 {
   "products": "Products",
-  "company": "Company"
+  "company": "Company",
+  "footer": {
+    "products":{
+      "header": "Products",
+      "item1": "ABC Wallet",
+      "item2": "ABC Waas",
+      "item3": "BICSacn"
+    },
+    "company":{
+      "header": "Company",
+      "item1": "About",
+      "item2": "Partners",
+      "item3": "Media",
+      "item4": "Contract"
+    },
+    "connect":{
+      "header": "Connect",
+      "item1": "Facebook",
+      "item2": "X",
+      "item3": "Contact",
+      "item4": "Medium",
+      "item5": "Youtube"
+    }
+  }
 }
