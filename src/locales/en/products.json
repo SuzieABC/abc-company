@@ -1,18 +1,18 @@
 {
-  "title": "Stay Secure,\nExplore Freely",
+  "title": "Stay Secure, Explore Freely",
   "subtitle": "Empower your web3 experience with \nour safe and secure wallet solution. \nPrepare for the upcoming virtual economy era with us",
   "company_name": "AhnLab Blockchain Company",
-  "company_detail": "A legacy of trust built through dedication.",
+  "company_detail": "A legacy of trust built \nthrough dedication.",
     "item": {
       "wallet": {
         "title": "ABC Wallet",
-        "highlight": "Convenient And \nSecure Web3 \nWallet Service",
+        "highlight": "Convenient And Secure Web3 Wallet Service",
         "detail": "Experience the enhanced \nABC Wallet and T wallet now \nmore powerful in one app."
       },
       "waas": {
         "title": "ABC WaaS",
-        "highlight": "wallet-as-a-\nService for \nBusiness",
-        "detail": "Experience unparalleled security and \neffortless integration with ABC WaaS, \ntransforming your Web2 business to Web3"
+        "highlight": "wallet-as-a- \nService \nfor Business",
+        "detail": "Experience unparalleled security and effortless integration with ABC WaaS, transforming your Web2 business to Web3"
       },
       "BIC": {
         "title": "BICScan",
@@ -25,5 +25,5 @@
         "detail": ""
       }
     },
-  "about_us": "Unlock Your Freedom Securely. \nExplore with AhnLab Blockchain Company."
+      "about_us_button" : "ABOUT US"
 }
