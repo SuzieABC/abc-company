@@ -1,10 +1,9 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import Button from "./Button";
-import STRP from "@/assets/images/products/SRTP-Abstract-Background-35.svg";
-import STRP1 from "@/assets/images/products/SRTP-Abstract-Background-v3.3_1.svg";
-import STRP2 from "@/assets/images/products/SRTP-Abstract-Background-v3.3_2.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
+import comingSoon from "@/assets/images/products/comingSoon.svg";
+import comingSoonM from "@/assets/images/products/comingSoon_m.svg";
 
 interface IntroductionCardsProps {
   title: string;
@@ -27,32 +26,18 @@ export default function IntroductionCards({
   const l = windowWidth > 1439;
 
   return (
-    <div
-      className={`${
-        s ? "text-center pb-[20px] " : "text-left pb-[120px]"
-      } w-[100%]`}
-    >
+    <div className={`${s ? "pb-[20px]" : "text-left pb-[120px]"} w-[100%]`}>
       <div
         style={{
-          // backgroundImage: upComing
-          //   ? `url(${STRP.src}), url(${STRP1.src}), url(${STRP2.src})`
-          //   : undefined,
-          // backgroundPosition: "center, 300px, -300px", // 각 이미지의 위치
-          // backgroundSize: "cover, cover, cover", // 모든 이미지에 동일하게 적용
-          // backgroundRepeat: "no-repeat", // 반복 여부
-
           backgroundImage: upComing
-            ? `url(${STRP1.src}), url(${STRP2.src}), url(${STRP.src})`
+            ? `url(${s ? comingSoonM.src : comingSoon.src})`
             : undefined,
-          backgroundPosition:
-            "calc(100% - 0px) -100px, left bottom, center center", // STRP1.src 위치 조정
-          backgroundSize: "885px, 885px, 80rem",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className={`bg-[#F0F1F4]  rounded-[32px] relative flex flex-wrap ${
-          upComing || s
-            ? "justify-center flex-col items-center"
-            : "justify-between pl-[60px]"
+        className={`bg-[#F0F1F4] rounded-[32px] flex px-[10px] ${
+          upComing || s ? "flex-col items-center" : "justify-between pl-[60px]"
         }  `}
       >
         <div
@@ -71,9 +56,7 @@ export default function IntroductionCards({
           </div>
           <div
             className={`text-black ${
-              s
-                ? "text-[30px] leading-[35.4px] whitespace-pre"
-                : "text-[40px] leading-[52px] "
+              s ? "text-[30px] leading-[35.4px]" : "text-[40px] leading-[52px]"
             } font-extrabold font-['OutfitExtraBold'] uppercase mb-[20px] ${
               l ? "w-[426px] pr-[19px]" : "w-[328px] "
             } ${highlight.includes("wallet-as-a-") && "whitespace-pre"} ${
@@ -82,28 +65,30 @@ export default function IntroductionCards({
           >
             <p>{highlight}</p>
           </div>
+          {!s && (
+            <div
+              className={`text-black font-normal font-['Inter'] m-auto ${
+                l ? "w-[426px]" : "w-[318px]"
+              } ${
+                s
+                  ? "text-[16px] leading-[22.4px]"
+                  : "text-[20px] leading-[27.2px]"
+              } ${!highlight.includes("wallet-as-a-") && "whitespace-pre"} ${
+                highlight.includes("인텔리전스") && "whitespace-pre"
+              }`}
+            >
+              <p>{detail}</p>
+            </div>
+          )}
           <div
-            className={`text-black font-normal font-['Inter'] m-auto ${
-              l ? "w-[426px]" : "w-[318px]"
-            } ${
-              s
-                ? "text-[16px] leading-[22.4px]"
-                : "text-[20px] leading-[27.2px]"
-            } ${!highlight.includes("wallet-as-a-") && "whitespace-pre"} ${
-              highlight.includes("인텔리전스") && "whitespace-pre"
-            }`}
-          >
-            <p>{detail}</p>
-          </div>
-          <div
-            className={`pt-[40px] ${
+            className={`${
               upComing
                 ? "pb-[80.04px]"
                 : l
-                ? "pb-[78.5px]"
+                ? "pb-[78.5px] pt-[40px]"
                 : s
                 ? "pb-[19.5px]"
-                : "pb-[52.5px]"
+                : "pb-[52.5px] pt-[40px]"
             }`}
           >
             {!upComing && <Button />}
@@ -112,7 +97,6 @@ export default function IntroductionCards({
 
         {img && (
           <div>
-            {" "}
             <Image
               src={img}
               alt="ABC_wallet_img"

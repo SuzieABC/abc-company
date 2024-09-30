@@ -1,7 +1,7 @@
 "use client";
 
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import Company_to_bg from "@/assets/images/company/Company_top_bg.svg";
+import product_top_bg from "@/assets/images/products/product_top_bg.svg";
 
 interface MainTopPageProps {
   title: string;
@@ -14,10 +14,9 @@ export default function MainTopPage({ title, subTitle }: MainTopPageProps) {
     <div
       className="h-screen flex flex-col justify-center items-center w-full"
       style={{
-        backgroundImage: `url(${Company_to_bg.src}`,
-        backgroundPosition: "0px 0px, right top, left bottom",
-        backgroundRepeat: "no-repeat",
-        // backgroundSize: "100% auto",
+        backgroundImage: `url(${product_top_bg.src})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover", // 이미지를 화면에 맞게 조정
       }}
     >
       <div
@@ -29,16 +28,13 @@ export default function MainTopPage({ title, subTitle }: MainTopPageProps) {
       >
         {title}
       </div>
-
-      <div
-        className={`text-center text-white pt-[20px] font-['InterExtraLight'] leading-7 font-[350] ${
-          windowWidth > 1023
-            ? "text-[22px] whitespace-pre"
-            : "text-base w-[296px]"
-        }`}
-      >
-        {subTitle}
-      </div>
+      {windowWidth > 1023 && (
+        <div
+          className={`text-center text-white pt-[20px] font-['InterExtraLight'] leading-7 font-[350] text-[22px] whitespace-pre`}
+        >
+          {subTitle}
+        </div>
+      )}
     </div>
   );
 }
