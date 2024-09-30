@@ -27,6 +27,11 @@ body {
 }
 
 @font-face {
+  font-family: 'OutfitLight'; 
+  src: url('../assets/fonts/OutfitLight.ttf');
+}
+
+@font-face {
   font-family: 'Outfit'; 
   src: url('../assets/fonts/OutfitRegular.ttf');
 }
@@ -37,8 +42,18 @@ body {
 }
 
 @font-face {
+  font-family: 'OutfitExtraBold'; 
+  src: url('../assets/fonts/OutfitExtraBold.ttf');
+}
+
+@font-face {
   font-family: 'Inter';
   src: url('../assets/fonts/Inter-Regular.otf');
+}
+
+@font-face {
+  font-family: 'InterExtraLight';
+  src: url('../assets/fonts/Inter-ExtraLight.otf');
 }
 
 @font-face {
