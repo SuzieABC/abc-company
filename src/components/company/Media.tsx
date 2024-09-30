@@ -32,7 +32,7 @@ export default function Media({ button }: MediaProps) {
         }`}
       >
         <div
-          className={`text-black font-extrabold font-['OutfitBold'] uppercase leading-[70px]   ${
+          className={`text-black font-extrabold font-['OutfitExtraBold'] uppercase leading-[70px]   ${
             s
               ? "pt-[60px] text-[28px] pb-[40px] text-center"
               : "pt-[160px] text-[50px] pb-[58px]"

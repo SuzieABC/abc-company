@@ -21,7 +21,7 @@ export default function Partners() {
         <span
           className={`text-black ${
             s ? "text-[28px]" : "text-[50px]"
-          } font-extrabold font-['OutfitBold'] uppercase`}
+          } font-extrabold font-['OutfitExtraBold'] uppercase`}
         >
           OUR PARTNERS
         </span>

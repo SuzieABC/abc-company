@@ -15,7 +15,7 @@ export default async function Page({
 
   return (
     <div className="flex flex-col justify-center items-center text-white">
-      <TopPage desc={t("description")} />
+      <TopPage desc={t("description")} desc_m={t("description_m")} />
       <Partners />
       <Media button={t(`load_more_button`)} />
       <BottomPage desc={t("partner_description")} />

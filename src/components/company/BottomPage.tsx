@@ -61,7 +61,7 @@ export default function BottomPage({ desc }: BottomPageProps) {
           )}
         </p>
         <p
-          className={`text-center text-white font-light font-['Inter'] leading-7 ${
+          className={`text-center text-white font-[350] font-['Inter'] leading-7 ${
             s ? "text-[17px] px-[38px]" : "text-[22px]"
           }`}
         >

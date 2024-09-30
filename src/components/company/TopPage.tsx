@@ -8,9 +8,10 @@ import useWindowWidth from "@/utils/hooks/useWindowWidth";
 
 interface TopPageProps {
   desc: string;
+  desc_m: string;
 }
 
-export default function TopPage({ desc }: TopPageProps) {
+export default function TopPage({ desc, desc_m }: TopPageProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
@@ -18,8 +19,8 @@ export default function TopPage({ desc }: TopPageProps) {
   const l = windowWidth > 1439;
   return (
     <div
-      className={`flex flex-col items-center justify-center h-screen w-full${
-        s ? "pt-[50px]" : ""
+      className={`flex flex-col items-center justify-center h-screen w-full ${
+        s ? "pt-[50px]" : "pt-[187px]"
       }`}
       style={{
         backgroundImage: `url(${company_top_bg.src})`,
@@ -30,9 +31,7 @@ export default function TopPage({ desc }: TopPageProps) {
         src={s ? comapny_top_img_m : company_top_img_pc}
         alt="dice"
         className={`${
-          s
-            ? "mt-[57.62px] pb-[40.41px] h-[329px]"
-            : "mt-[187.05px] pb-[70px] h-[600px]"
+          s ? "mt-[108px] pb-[40.41px]" : "mt-[100.05px] pb-[70px] h-[70%]"
         }`}
       />
       <div
@@ -40,7 +39,13 @@ export default function TopPage({ desc }: TopPageProps) {
           s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
         }`}
       >
-        <p className="text-center px-[255px] mb-[114.95px]">{desc}</p>
+        <p
+          className={`text-center mb-[114.95px] ${
+            s ? "px-[16px]" : m ? "px-[47px]" : "px-[252px]"
+          }`}
+        >
+          {s ? desc_m : desc}
+        </p>
       </div>
     </div>
   );
