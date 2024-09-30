@@ -1,6 +1,7 @@
 {
   "title": "Company",
   "description" : "AhnLab Blockchain Company, a subsidiary of AhnLab, researches blockchain security technology to protect assets and IP in the web3 world. We ensure users of all ages and cultures enjoy a safe, convenient web3 experience. We develop and support infrastructure for organizations to adopt blockchain wallets and expand their web3 presence.",
+  "description_m" : "AhnLab Blockchain Company, a subsidiary of AhnLab, researches blockchain security technology to protect assets and IP in the web3 world.",
   "load_more_button" : "LOAD MORE",
   "partner_description": "Please contact us for partnership inquiries."
 }
