@@ -15,9 +15,16 @@ const geistMono = localFont({
 
 /* TODO */
 export const metadata: Metadata = {
-  title: "Ahnlab Blockchain Company",
-  description:
-    "AhnLab Blockchain Company provides a safe and convenient blockchain wallet service based on AhnLab’s security DNA.",
+  title: "AhnLab Blockchain Company(ABC)",
+  description: "Stay Secure, Explore Freely",
+  openGraph: {
+    images: [
+      {
+        url: "@/assets/images/SEO.png", // 이미지 URL
+        alt: "AhnLab Blockchain Company Logo", // 이미지 설명
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -27,8 +34,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#211837]`}
       >
         {children}
       </body>
