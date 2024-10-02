@@ -15,7 +15,7 @@ export default function MainCompanyInfo({
 
   return (
     <div
-      className={`bg-[#0E0E23] w-full ${
+      className={`bg-[#0E0E23] w-screen ${
         windowWidth > 1023 ? "py-[100px]" : "py-[36px]"
       }`}
     >
@@ -30,7 +30,7 @@ export default function MainCompanyInfo({
           {company_name}
         </p>
         <p
-          className={`text-center text-white font-['Inter'] font-[350] ${
+          className={`text-center text-white font-['Inter'] font-[300] ${
             windowWidth > 1023
               ? "text-3xl"
               : "text-base leading-tight whitespace-pre"

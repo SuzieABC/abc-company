@@ -51,7 +51,9 @@ export default function Media({ button }: MediaProps) {
               <Image
                 src={item.image}
                 alt={item.title}
-                className="rounded-tl-[7.71px] rounded-tr-[7.71px] h-[255px]"
+                className={`rounded-tl-[7.71px] rounded-tr-[7.71px] ${
+                  s ? "h-[160px]" : m ? "h-[245px]" : "h-[255px]"
+                }`}
               />
 
               <div

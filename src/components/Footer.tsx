@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import Image from "next/image";
 import { /* usePathname, */ useParams } from "next/navigation";
 import ciCompanyIcon from "@/assets/icons/ci_company_icon.png";
@@ -7,11 +7,16 @@ import ciCompanyImage from "@/assets/images/ci_company_image.png";
 import { useTranslation } from "@/utils/localization/client";
 import type { LocaleTypes } from "@/utils/localization/settings";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   const locale = useParams()?.locale as LocaleTypes;
   const { t } = useTranslation(locale, "common");
   const windowWidth = useWindowWidth();
+  const pathname = usePathname();
 
   const menuHeaderStyle =
     "text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] cursor-pointer py-[10px]";
@@ -27,28 +32,50 @@ export default function Footer() {
       <footer className="p-[40px] max-w-[1440px] mx-auto">
         <div className="flex flex-wrap justify-between items-start">
           <div className="flex flex-row justify-between items-center min-w-[245px] w-[245px] cursor-pointer">
-            <Image src={ciCompanyIcon} alt="" className="w-[54px]" />
-            <Image src={ciCompanyImage} alt="" className="w-[180px]" />
+            <Image src={ciCompanyIcon} alt="logo" className="w-[54px]" />
+            <Image src={ciCompanyImage} alt="logo" className="w-[180px]" />
           </div>
           <div className="flex">
-            <div className="flex flex flex-col pr-[28px]">
-              <div className={`${menuHeaderStyle} mr-[28px]`}>
-                {t("footer.products.header")}
-              </div>
-              <span className={menuStyle}>{t("footer.products.item1")}</span>
-              <span className={menuStyle}>{t("footer.products.item2")}</span>
-              <span className={menuStyle}>{t("footer.products.item3")}</span>
+            <div className="flex flex-col pr-[28px]">
+              <Link href={`/${locale}/products`}>
+                <div className={`${menuHeaderStyle} mr-[28px]`}>
+                  {t("footer.products.header")}
+                </div>
+              </Link>
+
+              <Link
+                href={`/${locale}/products#abcWallet`}
+                className={menuStyle}
+              >
+                <span>{t("footer.products.item1")}</span>
+              </Link>
+              <Link href={`/${locale}/products#abcWaas`} className={menuStyle}>
+                <span>{t("footer.products.item2")}</span>
+              </Link>
+              <Link href={`/${locale}/products#bicScan`} className={menuStyle}>
+                <span>{t("footer.products.item3")}</span>
+              </Link>
             </div>
-            <div className="flex flex flex-col pr-[28px]">
-              <div className={menuHeaderStyle}>
-                {t("footer.company.header")}
-              </div>
-              <span className={menuStyle}>{t("footer.company.item1")}</span>
-              <span className={menuStyle}>{t("footer.company.item2")}</span>
-              <span className={menuStyle}>{t("footer.company.item3")}</span>
-              <span className={menuStyle}>{t("footer.company.item4")}</span>
+            <div className="flex flex-col pr-[28px]">
+              <Link href={`/${locale}/company`}>
+                <div className={menuHeaderStyle}>
+                  {t("footer.company.header")}
+                </div>
+              </Link>
+              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+                <span>{t("footer.company.item1")}</span>
+              </Link>
+              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+                <span>{t("footer.company.item2")}</span>
+              </Link>
+              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+                <span>{t("footer.company.item3")}</span>
+              </Link>
+              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+                <span>{t("footer.company.item4")}</span>
+              </Link>
             </div>
-            <div className="flex flex flex-col">
+            <div className="flex flex-col">
               <div className={menuHeaderStyle}>
                 {t("footer.connect.header")}
               </div>
@@ -84,9 +111,11 @@ export default function Footer() {
             />
           </div>
           <div className={`flex ${windowWidth < 1024 && "flex-col"}`}>
-            <div className={`${menuHeaderStyleMobile} mr-[28px]`}>
-              {t("footer.products.header")}
-            </div>
+            <Link href={pathname.includes("en") ? "/en/products" : "/products"}>
+              <div className={`${menuHeaderStyleMobile} mr-[28px]`}>
+                {t("footer.products.header")}
+              </div>
+            </Link>
             <div className={`flex ${windowWidth > 1023 && "flex-col"}`}>
               <span className={menuStyleMobile}>
                 {t("footer.products.item1")}
