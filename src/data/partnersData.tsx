@@ -1,12 +1,22 @@
-import SKTelecom from "@/assets/images/company/partners_logo/SK-telecom.svg";
-import SogangUniv from "@/assets/images/company/partners_logo/SogangUniv.svg";
-import STO from "@/assets/images/company/partners_logo/STO.svg";
-import Kaia from "@/assets/images/company/partners_logo/Kaia.svg";
-import Uppsala from "@/assets/images/company/partners_logo/Uppsala.svg";
-import Chainlink from "@/assets/images/company/partners_logo/Chainlink.svg";
-import Colligence from "@/assets/images/company/partners_logo/Colligence.svg";
-import TokenPost from "@/assets/images/company/partners_logo/TokenPost.svg";
-import OneInch from "@/assets/images/company/partners_logo/oneInch.svg";
+// import SKTelecom from "@/assets/images/company/partners_logo/SK-telecom.svg";
+// import SogangUniv from "@/assets/images/company/partners_logo/SogangUniv.svg";
+// import STO from "@/assets/images/company/partners_logo/STO.svg";
+// import Kaia from "@/assets/images/company/partners_logo/Kaia.svg";
+// import Uppsala from "@/assets/images/company/partners_logo/Uppsala.svg";
+// import Chainlink from "@/assets/images/company/partners_logo/Chainlink.svg";
+// import Colligence from "@/assets/images/company/partners_logo/Colligence.svg";
+// import TokenPost from "@/assets/images/company/partners_logo/TokenPost.svg";
+// import OneInch from "@/assets/images/company/partners_logo/oneInch.svg";
+
+import SKTelecom from "@/assets/images/company/partners_logo/1.svg";
+import SogangUniv from "@/assets/images/company/partners_logo/2.svg";
+import STO from "@/assets/images/company/partners_logo/3.svg";
+import Kaia from "@/assets/images/company/partners_logo/4.svg";
+import Uppsala from "@/assets/images/company/partners_logo/5.svg";
+import Chainlink from "@/assets/images/company/partners_logo/6.svg";
+import Colligence from "@/assets/images/company/partners_logo/7.svg";
+import TokenPost from "@/assets/images/company/partners_logo/8.svg";
+import OneInch from "@/assets/images/company/partners_logo/9.svg";
 
 const partnersList = [
   { id: "sk_telecom", name: "SK telecom", image: SKTelecom, width: 71 },
