@@ -60,3 +60,13 @@ body {
   font-family: 'Pretendard';
   src: url('../assets/fonts/Pretendard-Regular.otf');
 }
+
+@font-face {
+  font-family: 'PretendardBold';
+  src: url('../assets/fonts/Pretendard-Bold.otf');
+}
+
+@font-face {
+  font-family: 'PretendardExtraBold';
+  src: url('../assets/fonts/Pretendard-ExtraBold.otf');
+}
