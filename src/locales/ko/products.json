@@ -7,12 +7,12 @@
       "wallet": {
         "title": "ABC Wallet",
         "highlight": "편리하고 안전한 \nWeb3 지갑 서비스",
-        "detail": "하나의 앱에서 만나 더 강력해진 ABC Wallet과 T \nwallet을 경험할 수 있습니다."
+        "detail": "하나의 앱에서 만나 더 강력해진 \nABC Wallet과 T wallet을 \n경험할 수 있습니다."
       },
       "waas": {
         "title": "ABC WaaS",
-        "highlight": "기업용 지갑 솔루션",
-        "detail": "ABC WaaS와 함께 Web2에서 Web3로 손쉽게 전\n환할 수 있습니다."
+        "highlight": "기업용 \n지갑 솔루션",
+        "detail": "ABC WaaS와 함께\nWeb2에서 Web3로 \n손쉽게 전환할 수 있습니다."
       },
       "BIC": {
         "title": "BICScan",
@@ -25,5 +25,6 @@
         "detail": ""
       }
     },
+    "products_button" : "더보기",
   "about_us_button" : "회사 소개"
 }

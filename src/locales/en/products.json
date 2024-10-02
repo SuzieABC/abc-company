@@ -6,7 +6,7 @@
     "item": {
       "wallet": {
         "title": "ABC Wallet",
-        "highlight": "Convenient And Secure Web3 Wallet Service",
+        "highlight": "Convenient And \nSecure Web3 \nWallet Service",
         "detail": "Experience the enhanced \nABC Wallet and T wallet now \nmore powerful in one app."
       },
       "waas": {
@@ -25,5 +25,6 @@
         "detail": ""
       }
     },
-      "about_us_button" : "ABOUT US"
+    "products_button" : "Learn More",
+    "about_us_button" : "ABOUT US"
 }
