@@ -3,6 +3,7 @@
 import partnersList from "@/data/partnersData";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Partners() {
   const windowWidth = useWindowWidth();
@@ -26,23 +27,37 @@ export default function Partners() {
           OUR PARTNERS
         </span>
         <div className={`${s ? "mt-[40px]" : "mt-[60px]"} `}>
-          <div className="grid grid-cols-3 gap-2 ">
-            {partnersList?.map((item) => (
-              <div
-                key={item.id}
-                className={`bg-[#F0F1F4] flex justify-center items-center aspect-[1] ${
-                  s ? "rounded-[3.63px]" : "rounded-[12.8px]"
-                } p-[1rem]`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  // width={s && item.width}
-                  className="mix-blend-multiply"
-                />
-              </div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              ease: "easeInOut",
+              duration: 2,
+              y: { duration: 1 },
+            }}
+          >
+            <div
+              className={`grid grid-cols-3 ${
+                s ? "gap-[8px]" : m ? "gap-[15px]" : "gap-[16px]"
+              }`}
+            >
+              {partnersList?.map((item) => (
+                <div
+                  key={item.id}
+                  // className={`bg-[#F0F1F4] flex justify-center items-center aspect-[1] ${
+                  //   s ? "rounded-[3.63px]" : "rounded-[12.8px]"
+                  // } p-[1rem]`}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    className="mix-blend-multiply"
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

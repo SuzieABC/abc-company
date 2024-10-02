@@ -5,6 +5,7 @@ import Image from "next/image";
 import comapny_top_img_m from "@/assets/images/company/company_top_img_m.svg";
 import company_top_img_pc from "@/assets/images/company/Company_top_img_pc.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
+import { motion } from "framer-motion";
 
 interface TopPageProps {
   desc: string;
@@ -34,19 +35,35 @@ export default function TopPage({ desc, desc_m }: TopPageProps) {
           s ? "mt-[108px] pb-[40.41px]" : "mt-[100.05px] pb-[70px] h-[70%]"
         }`}
       />
-      <div
-        className={`${
-          s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
-        }`}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{
+          ease: "easeInOut",
+          duration: 2,
+          y: { duration: 1 },
+        }}
       >
-        <p
-          className={`text-center mb-[114.95px] ${
-            s ? "px-[16px]" : m ? "px-[47px]" : "px-[252px]"
+        {" "}
+        <div
+          className={`${
+            s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
           }`}
         >
-          {s ? desc_m : desc}
-        </p>
-      </div>
+          <p
+            className={`text-center mb-[114.95px] whitespace-pre ${
+              s
+                ? "px-[16px] leading-[20.8px]"
+                : m
+                ? "px-[47px] leading-[27.2px]"
+                : "px-[252px] leading-[27.2px]"
+            }`}
+          >
+            {s ? desc_m : desc}
+          </p>
+        </div>
+      </motion.div>
     </div>
   );
 }
