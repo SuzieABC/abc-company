@@ -150,7 +150,7 @@ export default function Header() {
                         className={`w-full h-full text-base font-['Outfit'] uppercase tracking-tight px-[20px] py-[12px] mb-[8px] ${
                           pathname.includes(item)
                             ? "font-bold"
-                            : "font-thin text-white/50"
+                            : "font-light text-white/50"
                         }`}
                       >
                         {t(`${item}`)}
