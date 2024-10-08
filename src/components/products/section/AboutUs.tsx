@@ -3,6 +3,7 @@
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import product_bottom_bg from "@/assets/images/products/04_about.svg";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface AboutUsProps {
   buttonText: string;
@@ -67,7 +68,8 @@ export default function AboutUs({ buttonText }: AboutUsProps) {
             )}
           </div>
 
-          <div
+          <Link
+            href="/company"
             className={`py-[16px] px-[51px] bg-white rounded-[10px] justify-center items-center gap-2 inline-flex ${
               s ? "mb-[110px] w-[180px]" : "mb-[180px] w-[240px]"
             }`}
@@ -79,7 +81,7 @@ export default function AboutUs({ buttonText }: AboutUsProps) {
             >
               <span>{buttonText}</span>
             </div>
-          </div>
+          </Link>
         </motion.div>
       </div>
     </div>

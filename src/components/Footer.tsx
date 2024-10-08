@@ -19,9 +19,9 @@ export default function Footer() {
   const pathname = usePathname();
 
   const menuHeaderStyle =
-    "text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] cursor-pointer py-[10px]";
+    "text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] py-[10px]";
   const menuStyle =
-    "text-white py-[10px] px-[20px] text-white/70 text-base font-light font-['Inter'] tracking-tight cursor-pointer";
+    "text-white py-[10px] px-[20px] text-white/70 text-base font-light font-['Inter'] tracking-tight cursor-pointer t";
   const menuHeaderStyleMobile =
     "text-white text-black px-[12px] text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] cursor-pointer text-[14px]";
   const menuStyleMobile =
@@ -62,16 +62,16 @@ export default function Footer() {
                   {t("footer.company.header")}
                 </div>
               </Link>
-              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+              <Link href={`/${locale}/company/#about`} className={menuStyle}>
                 <span>{t("footer.company.item1")}</span>
               </Link>
-              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+              <Link href={`/${locale}/company/#partners`} className={menuStyle}>
                 <span>{t("footer.company.item2")}</span>
               </Link>
-              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+              <Link href={`/${locale}/company/#media`} className={menuStyle}>
                 <span>{t("footer.company.item3")}</span>
               </Link>
-              <Link href={`/${locale}/#bicScan`} className={menuStyle}>
+              <Link href={`/${locale}/company/#contact`} className={menuStyle}>
                 <span>{t("footer.company.item4")}</span>
               </Link>
             </div>
@@ -79,10 +79,35 @@ export default function Footer() {
               <div className={menuHeaderStyle}>
                 {t("footer.connect.header")}
               </div>
-              <span className={menuStyle}>{t("footer.connect.item1")}</span>
-              <span className={menuStyle}>{t("footer.connect.item2")}</span>
-              <span className={menuStyle}>{t("footer.connect.item3")}</span>
-              <span className={menuStyle}>{t("footer.connect.item4")}</span>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/abcwallet2022"
+                className={menuStyle}
+              >
+                <span>{t("footer.connect.item1")}</span>
+              </Link>
+
+              <Link
+                target="_blank"
+                href="https://x.com/AhnLab_ABC"
+                className={menuStyle}
+              >
+                <span>{t("footer.connect.item2")}</span>
+              </Link>
+              <Link
+                target="_blank"
+                href="https://medium.com/@AhnLabBlockchainCompany"
+                className={menuStyle}
+              >
+                <span>{t("footer.connect.item3")}</span>
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.youtube.com/@ABC_Wallet"
+                className={menuStyle}
+              >
+                <span>{t("footer.connect.item4")}</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -117,33 +142,66 @@ export default function Footer() {
               </div>
             </Link>
             <div className={`flex ${windowWidth > 1023 && "flex-col"}`}>
-              <span className={menuStyleMobile}>
-                {t("footer.products.item1")}
-              </span>
-              <span className={menuStyleMobile}>
-                {t("footer.products.item2")}
-              </span>
-              <span className={menuStyleMobile}>
-                {t("footer.products.item3")}
-              </span>
+              <Link
+                className={menuStyleMobile}
+                href={`/${locale}/products#abcWallet`}
+              >
+                <span>{t("footer.products.item1")}</span>
+              </Link>
+              <Link
+                href={`/${locale}/products#abcWaas`}
+                className={menuStyleMobile}
+              >
+                <span>{t("footer.products.item2")}</span>
+              </Link>
+              <Link
+                href={`/${locale}/products#bicScan`}
+                className={menuStyleMobile}
+              >
+                <span className={menuStyleMobile}>
+                  {t("footer.products.item3")}
+                </span>
+              </Link>
             </div>
+
             <div className="flex flex flex-col">
-              <div className={menuHeaderStyleMobile}>
-                {t("footer.company.header")}
-              </div>
+              <Link
+                href={pathname.includes("en") ? "/en/company" : "/company"}
+                className={menuHeaderStyleMobile}
+              >
+                <div>{t("footer.company.header")}</div>
+              </Link>
               <div className={`flex ${windowWidth > 1023 && "flex-col"}`}>
-                <span className={menuStyleMobile}>
-                  {t("footer.company.item1")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.company.item2")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.company.item3")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.company.item4")}
-                </span>
+                <Link
+                  href={`/${locale}/company/#about`}
+                  className={menuStyleMobile}
+                >
+                  <span>{t("footer.company.item1")}</span>
+                </Link>
+                <Link
+                  href={`/${locale}/company/#partners`}
+                  className={menuStyleMobile}
+                >
+                  <span className={menuStyleMobile}>
+                    {t("footer.company.item2")}
+                  </span>
+                </Link>
+                <Link
+                  href={`/${locale}/company/#media`}
+                  className={menuStyleMobile}
+                >
+                  <span className={menuStyleMobile}>
+                    {t("footer.company.item3")}
+                  </span>
+                </Link>
+                <Link
+                  href={`/${locale}/company/#contact`}
+                  className={menuStyleMobile}
+                >
+                  <span className={menuStyleMobile}>
+                    {t("footer.company.item4")}
+                  </span>
+                </Link>
               </div>
             </div>
             <div className="flex flex flex-col">
@@ -151,18 +209,35 @@ export default function Footer() {
                 {t("footer.connect.header")}
               </div>
               <div className={`flex ${windowWidth > 1023 && "flex-col"}`}>
-                <span className={menuStyleMobile}>
-                  {t("footer.connect.item1")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.connect.item2")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.connect.item3")}
-                </span>
-                <span className={menuStyleMobile}>
-                  {t("footer.connect.item4")}
-                </span>
+                <Link
+                  target="_blank"
+                  href="https://www.facebook.com/abcwallet2022"
+                  className={menuStyleMobile}
+                >
+                  <span>{t("footer.connect.item1")}</span>
+                </Link>
+
+                <Link
+                  target="_blank"
+                  href="https://x.com/AhnLab_ABC"
+                  className={menuStyleMobile}
+                >
+                  <span>{t("footer.connect.item2")}</span>
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://medium.com/@AhnLabBlockchainCompany"
+                  className={menuStyleMobile}
+                >
+                  <span>{t("footer.connect.item3")}</span>
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://www.youtube.com/@ABC_Wallet"
+                  className={menuStyleMobile}
+                >
+                  <span>{t("footer.connect.item4")}</span>
+                </Link>
               </div>
             </div>
           </div>

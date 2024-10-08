@@ -49,10 +49,13 @@ export default function Header() {
       <div className="flex justify-center bg-[#211837] fixed w-full z-50">
         <header className="flex flex-col px-10 py-5 w-full max-w-[1440px] mx-auto">
           <div className="flex flex-row w-full justify-between items-center px-2">
-            <div className="flex flex-row justify-between items-center min-w-[245px] w-[245px] cursor-pointer">
+            <Link
+              href="/company"
+              className="flex flex-row justify-between items-center min-w-[245px] w-[245px]"
+            >
               <Image src={ciCompanyIcon} alt="" className="w-[54px]" />
               <Image src={ciCompanyImage} alt="" className="w-[180px]" />
-            </div>
+            </Link>
             <div className="flex flex-row">
               <nav className="flex flex-row justify-center items-center">
                 {items.map((item) => {

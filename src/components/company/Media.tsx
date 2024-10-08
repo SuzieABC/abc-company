@@ -25,7 +25,7 @@ export default function Media({ button }: MediaProps) {
   };
 
   return (
-    <div className="bg-[#F0F1F4] w-full flex justify-center">
+    <div className="bg-[#F0F1F4] w-full flex justify-center" id="media">
       <div
         className={`bg-[#F0F1F4] text-black  max-w-[1440px] w-[100%] max-auto ${
           s ? "px-[16px]" : "px-[40px]"

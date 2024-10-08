@@ -1,13 +1,8 @@
 "use client";
 
 import IntroductionCards from "@/components/products/IntroductionCards";
-import ABC_Wallet_img from "@/assets/images/products/bbb.svg";
-// import ABC_Wallet_img from "@/assets/images/products/aaa.svg";
-// import ABC_WaaS_img from "@/assets/images/products/ABC WaaS_img.svg";
-// import BICScan_img from "@/assets/images/products/BICScan_img.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-
-// import ABC_Wallet_img from "@/assets/images/products/bbb.svg";
+import ABC_Wallet_img from "@/assets/images/products/bbb.svg";
 import ABC_WaaS_img from "@/assets/images/products/waasImage2.svg";
 import BICScan_img from "@/assets/images/products/bicImage2.svg";
 interface ProductsProps {
@@ -56,7 +51,6 @@ export default function Products({
             scrollMarginTop: "94px",
           }}
         >
-          {" "}
           <IntroductionCards
             title={walletTitle}
             highlight={walletHighlight}
@@ -64,6 +58,7 @@ export default function Products({
             img={ABC_Wallet_img}
             button={button}
             locale={locale}
+            url="https://myabcwallet.io"
           />
         </div>
 
@@ -73,7 +68,6 @@ export default function Products({
             scrollMarginTop: "94px",
           }}
         >
-          {" "}
           <IntroductionCards
             title={waasTitle}
             highlight={waasHighlight}
@@ -81,6 +75,7 @@ export default function Products({
             img={ABC_WaaS_img}
             button={button}
             locale={locale}
+            url="https://abcwaas.com"
           />
         </div>
 
@@ -90,7 +85,6 @@ export default function Products({
             scrollMarginTop: "94px",
           }}
         >
-          {" "}
           <IntroductionCards
             title={bicTitle}
             highlight={bicHighlight}
@@ -98,6 +92,7 @@ export default function Products({
             img={BICScan_img}
             button={button}
             locale={locale}
+            url="https://bicscan.io/"
           />
         </div>
 
@@ -105,6 +100,7 @@ export default function Products({
           title={kytTitle}
           highlight={kytHighlight}
           locale={locale}
+          url={`${locale}/company`}
         />
       </div>
     </div>

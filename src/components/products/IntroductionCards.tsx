@@ -16,6 +16,7 @@ interface IntroductionCardsProps {
   img?: string | StaticImageData;
   button?: string;
   locale?: string;
+  url: string;
 }
 
 export default function IntroductionCards({
@@ -25,6 +26,7 @@ export default function IntroductionCards({
   img,
   button,
   locale,
+  url,
 }: IntroductionCardsProps) {
   const upComing = highlight === "Coming Soon";
   const windowWidth = useWindowWidth();
@@ -44,7 +46,7 @@ export default function IntroductionCards({
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className={`bg-[#F0F1F4] rounded-[32px] flex ${
+        className={`bg-[#F0F1F4] rounded-[32px] flex items-center ${
           upComing || s
             ? "flex-col items-center"
             : m
@@ -75,9 +77,17 @@ export default function IntroductionCards({
             <div
               className={`text-[#4b38db] ${
                 s ? "text-[20px]" : "text-[28px]"
-              } font-bold font-['OutfitBold'] ${
-                upComing ? (s ? "pt-[112px]" : "pt-[146px] text-center") : ""
-              } mb-[20px]`}
+              } font-bold ${
+                upComing
+                  ? s
+                    ? "pt-[112px]"
+                    : "pt-[146px] text-center"
+                  : "font-['OutfitBold']"
+              } mb-[20px] ${
+                upComing && locale === "ko"
+                  ? "font-['PretendardBold']"
+                  : "font-['OutfitBold']"
+              }`}
             >
               {title}
             </div>
@@ -100,9 +110,9 @@ export default function IntroductionCards({
             </div>
             {!s && (
               <div
-                className={`text-black font-normal font-['Inter'] mt-[20px] m-auto ${
-                  l ? "w-[426px]" : "w-[318px]"
-                } ${
+                className={`text-black font-normal ${
+                  locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"
+                } mt-[20px] m-auto ${l ? "w-[426px]" : "w-[318px]"} ${
                   s
                     ? "text-[16px] leading-[22.4px]"
                     : "text-[20px] leading-[27.2px]"
@@ -126,7 +136,9 @@ export default function IntroductionCards({
                   : "pt-[40px]"
               }`}
             >
-              {!upComing && <Button button={button} />}
+              {!upComing && (
+                <Button button={button} url={url} locale={locale} />
+              )}
             </div>
           </div>
         </motion.div>
@@ -146,7 +158,6 @@ export default function IntroductionCards({
                   ? BICScan_img_mobile
                   : img
               }
-              // src={img}
               alt="ABC_wallet_img"
               className={`${
                 title === "ABC Wallet" ? (s ? "pt-[19.5px]" : "") : s ? "" : ""
