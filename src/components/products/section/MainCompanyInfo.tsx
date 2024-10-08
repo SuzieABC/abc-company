@@ -5,11 +5,13 @@ import useWindowWidth from "@/utils/hooks/useWindowWidth";
 interface MainCompanyInfoProps {
   company_name: string;
   company_detail: string;
+  locale: string;
 }
 
 export default function MainCompanyInfo({
   company_name,
   company_detail,
+  locale,
 }: MainCompanyInfoProps) {
   const windowWidth = useWindowWidth();
 
@@ -30,11 +32,11 @@ export default function MainCompanyInfo({
           {company_name}
         </p>
         <p
-          className={`text-center text-white font-['Inter'] font-[300] ${
+          className={`text-center text-white  font-[300] ${
             windowWidth > 1023
               ? "text-3xl"
               : "text-base leading-tight whitespace-pre"
-          }`}
+          } ${locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"}`}
         >
           {company_detail}
         </p>

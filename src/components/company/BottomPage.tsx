@@ -8,9 +8,10 @@ import { motion } from "framer-motion";
 
 interface BottomPageProps {
   desc: string;
+  locale: string;
 }
 
-export default function BottomPage({ desc }: BottomPageProps) {
+export default function BottomPage({ desc, locale }: BottomPageProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
@@ -18,6 +19,7 @@ export default function BottomPage({ desc }: BottomPageProps) {
   const l = windowWidth > 1439;
   return (
     <div
+      id="contact"
       className="bg-[#0E0E23] w-full text-center"
       style={{
         backgroundImage: `url(${
@@ -28,6 +30,32 @@ export default function BottomPage({ desc }: BottomPageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <div
+        className={` font-['OutfitExtraBold'] mix-blend-color-dodge text-[#d9d9d9] text-[50px] font-extrabold uppercase ${
+          s
+            ? "pb-[24px] mt-[120px] leading-[45.6px]"
+            : "pb-[40px] mt-[201px] leading-[70px]"
+        }`}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{
+            ease: "easeInOut",
+            duration: 2,
+            y: { duration: 1 },
+          }}
+        >
+          {s ? (
+            <span>
+              BECOME <br /> A PARTNER
+            </span>
+          ) : (
+            <span>BECOME A PARTNER</span>
+          )}
+        </motion.div>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -38,22 +66,6 @@ export default function BottomPage({ desc }: BottomPageProps) {
           y: { duration: 1 },
         }}
       >
-        {" "}
-        <div
-          className={` font-['OutfitExtraBold'] mix-blend-color-dodge text-[#d9d9d9] text-[50px] font-extrabold uppercase ${
-            s
-              ? "pb-[24px] mt-[120px] leading-[45.6px]"
-              : "pb-[40px] mt-[201px] leading-[70px]"
-          }`}
-        >
-          {s ? (
-            <span>
-              BECOME <br /> A PARTNER
-            </span>
-          ) : (
-            <span>BECOME A PARTNER</span>
-          )}
-        </div>
         <div className={`${s ? "mb-[122px]" : "mb-[201px]"}`}>
           <p
             className={`pb-[18px] text-center text-white  font-light font-['Outfit']  ${
@@ -73,9 +85,9 @@ export default function BottomPage({ desc }: BottomPageProps) {
             )}
           </p>
           <p
-            className={`text-center text-white font-[350] font-['Inter'] leading-7 ${
-              s ? "text-[17px] px-[38px]" : "text-[22px]"
-            }`}
+            className={`text-center text-white font-[350] ${
+              locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"
+            } leading-7 ${s ? "text-[17px] px-[38px]" : "text-[22px]"}`}
           >
             {desc}
           </p>

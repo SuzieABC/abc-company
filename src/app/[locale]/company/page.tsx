@@ -15,10 +15,14 @@ export default async function Page({
 
   return (
     <div className="flex flex-col justify-center items-center text-white">
-      <TopPage desc={t("description")} desc_m={t("description_m")} />
+      <TopPage
+        desc={t("description")}
+        desc_m={t("description_m")}
+        locale={locale}
+      />
       <Partners />
       <Media button={t(`load_more_button`)} />
-      <BottomPage desc={t("partner_description")} />
+      <BottomPage desc={t("partner_description")} locale={locale} />
     </div>
   );
 }

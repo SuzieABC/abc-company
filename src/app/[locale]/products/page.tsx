@@ -16,8 +16,11 @@ export default async function Page({
 
   return (
     <div className="flex flex-col justify-center items-center text-center w-screen">
-      <MainTopPage title={t("title")} subTitle={t("subtitle")} />
-
+      <MainTopPage
+        title={t("title")}
+        subTitle={t("subtitle")}
+        locale={locale}
+      />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,8 +34,10 @@ export default async function Page({
         <MainCompanyInfo
           company_name={t("company_name")}
           company_detail={t("company_detail")}
+          locale={locale}
         />
       </motion.div>
+
       <Products
         walletTitle={t(`item.wallet.title`)}
         walletHighlight={t("item.wallet.highlight")}
@@ -48,6 +53,7 @@ export default async function Page({
         button={t("products_button")}
         locale={locale}
       />
+
       <AboutUs buttonText={t("about_us_button")} />
     </div>
   );
