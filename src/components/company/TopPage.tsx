@@ -2,39 +2,57 @@
 
 import company_top_bg from "@/assets/images/company/company_top_bg.svg";
 import Image from "next/image";
-import comapny_top_img_m from "@/assets/images/company/company_top_img_m.svg";
-import company_top_img_pc from "@/assets/images/company/Company_top_img_pc.svg";
+// import comapny_top_img_m from "@/assets/images/company/company_top_img_m.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
+import company_top from "../../../public/animations/company_top.json";
+import Lottie from "react-lottie-player";
+import company_top_img_pc from "@/assets/images/company/company_top_img_pc.svg";
+import comapny_top_img_m from "@/assets/images/company/company_top_img_m.svg";
 
 interface TopPageProps {
   desc: string;
   desc_m: string;
+  locale: string;
 }
 
-export default function TopPage({ desc, desc_m }: TopPageProps) {
+export default function TopPage({ desc, desc_m, locale }: TopPageProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
   const m = windowWidth > 1023 && windowWidth < 1440;
   const l = windowWidth > 1439;
+
   return (
     <div
-      className={`flex flex-col items-center justify-center h-screen w-full ${
-        s ? "pt-[50px]" : "pt-[187px]"
+      id="about"
+      className={`flex flex-col items-center justify-center h-screen w-full relative ${
+        s ? "mt-[70px]" : "pt-[187px]"
       }`}
       style={{
         backgroundImage: `url(${company_top_bg.src})`,
         backgroundSize: "cover",
       }}
     >
-      <Image
-        src={s ? comapny_top_img_m : company_top_img_pc}
-        alt="dice"
-        className={`${
-          s ? "mt-[108px] pb-[40.41px]" : "mt-[100.05px] pb-[70px] h-[70%]"
-        }`}
-      />
+      <div className="relative flex items-center justify-center h-full">
+        <Image
+          src={s ? comapny_top_img_m : company_top_img_pc}
+          alt="dice"
+          className={`${s ? "" : "p-[70px]"}`}
+        />
+        <Lottie
+          loop
+          animationData={company_top}
+          play
+          className={`absolute z-0 ${s ? "w-[300px]" : "h-[197px]"}`}
+          // style={{
+          //   transform: "translate(-50%, -50%)",
+          //   top: "50%",
+          //   left: "50%",
+          // }} // 중앙 정렬
+        />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +63,6 @@ export default function TopPage({ desc, desc_m }: TopPageProps) {
           y: { duration: 1 },
         }}
       >
-        {" "}
         <div
           className={`${
             s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
@@ -53,6 +70,8 @@ export default function TopPage({ desc, desc_m }: TopPageProps) {
         >
           <p
             className={`text-center mb-[114.95px] whitespace-pre ${
+              locale === "ko" ? "font-[Pretendard]" : "font-[Inter]"
+            } ${
               s
                 ? "px-[16px] leading-[20.8px]"
                 : m
