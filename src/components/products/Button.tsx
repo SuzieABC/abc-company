@@ -18,8 +18,8 @@ export default function Button({ button, url, locale }: ButtonProps) {
     <Link href={url} target="_blank">
       <div
         className={`${
-          s ? "h-[43px] mb-[15px] px-[20px] " : "h-[56px] px-[36px] "
-        } py-4 px-[12px] bg-[#4b38db] rounded-[10px] justify-center items-center gap-2.5 inline-flex`}
+          s ? "h-[43px] mb-[15px] px-[20px]" : "h-[56px] px-[36px]"
+        } py-4 px-[12px] bg-[#4b38db] rounded-[10px] justify-center items-center gap-2.5 inline-flex transition-colors duration-200 ease-in-out group hover:bg-[#281a93] active:bg-[#281a93]`}
       >
         <span
           className={`text-white ${
