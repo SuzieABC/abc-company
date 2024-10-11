@@ -18,21 +18,45 @@ export default function MainTopPage({
   locale,
 }: MainTopPageProps) {
   const windowWidth = useWindowWidth();
+
+  const s = windowWidth < 1024;
+  const m = windowWidth > 1023 && windowWidth < 1440;
+  const l = windowWidth > 1439;
+
+  const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (e.deltaY > 0) {
+      window.scrollBy({
+        top: s ? window.innerHeight - 53 : window.innerHeight - 95,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div
-      className="h-screen flex flex-col justify-center items-center w-screen"
+      className="h-screen flex flex-col justify-center items-center w-screen relative"
       style={{
         backgroundImage: `url(${product_top_bg.src})`,
         backgroundPosition: "center",
         backgroundSize: "cover", // 이미지를 화면에 맞게 조정
+        overflow: "hidden",
       }}
+      onWheel={handleScroll}
     >
       <Lottie
         loop
         animationData={products_top}
         play
-        className={`absolute z-0`}
+        style={{
+          transform: "translate(-50%, -50%)",
+          top: "50%",
+          left: "50%",
+        }} // 중앙 정렬
+        className={`absolute z-0
+          ${s ? " min-w-[1200px]" : "w-[1500px]"}
+        `}
       />
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
