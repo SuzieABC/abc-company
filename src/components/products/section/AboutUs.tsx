@@ -7,9 +7,10 @@ import Link from "next/link";
 
 interface AboutUsProps {
   buttonText: string;
+  locale: string;
 }
 
-export default function AboutUs({ buttonText }: AboutUsProps) {
+export default function AboutUs({ buttonText, locale }: AboutUsProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
@@ -69,7 +70,7 @@ export default function AboutUs({ buttonText }: AboutUsProps) {
           </div>
 
           <Link
-            href="/company"
+            href={`/${locale}/company`}
             className={`py-[16px] px-[51px] bg-white rounded-[10px] justify-center items-center gap-2 inline-flex ${
               s ? "mb-[110px] w-[180px]" : "mb-[180px] w-[240px]"
             }`}

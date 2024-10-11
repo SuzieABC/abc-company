@@ -54,7 +54,7 @@ export default async function Page({
         locale={locale}
       />
 
-      <AboutUs buttonText={t("about_us_button")} />
+      <AboutUs buttonText={t("about_us_button")} locale={locale} />
     </div>
   );
 }

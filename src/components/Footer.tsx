@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
           <div className="flex">
             <div className="flex flex-col pr-[28px]">
-              <Link href={`/${locale}/products`}>
+              <Link href={`/${locale}/products#abcWallet`}>
                 <div className={`${menuHeaderStyle} mr-[28px]`}>
                   {t("footer.products.header")}
                 </div>
@@ -158,9 +158,7 @@ export default function Footer() {
                 href={`/${locale}/products#bicScan`}
                 className={menuStyleMobile}
               >
-                <span className={menuStyleMobile}>
-                  {t("footer.products.item3")}
-                </span>
+                <span>{t("footer.products.item3")}</span>
               </Link>
             </div>
 
@@ -182,25 +180,19 @@ export default function Footer() {
                   href={`/${locale}/company/#partners`}
                   className={menuStyleMobile}
                 >
-                  <span className={menuStyleMobile}>
-                    {t("footer.company.item2")}
-                  </span>
+                  <span>{t("footer.company.item2")}</span>
                 </Link>
                 <Link
                   href={`/${locale}/company/#media`}
                   className={menuStyleMobile}
                 >
-                  <span className={menuStyleMobile}>
-                    {t("footer.company.item3")}
-                  </span>
+                  <span>{t("footer.company.item3")}</span>
                 </Link>
                 <Link
                   href={`/${locale}/company/#contact`}
                   className={menuStyleMobile}
                 >
-                  <span className={menuStyleMobile}>
-                    {t("footer.company.item4")}
-                  </span>
+                  <span>{t("footer.company.item4")}</span>
                 </Link>
               </div>
             </div>
