@@ -1,16 +1,15 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import { /* usePathname, */ useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ChangeLocale from "./ChangeLocale";
 import { useTranslation } from "@/utils/localization/client";
 import type { LocaleTypes } from "@/utils/localization/settings";
-import ciCompanyIcon from "@/assets/icons/ci_company_icon.png";
-import ciCompanyImage from "@/assets/images/ci_company_image.png";
-import { useRef, useState, useEffect } from "react";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import menu from "@/assets/icons/Menu.svg";
+import menu_colour from "@/assets/icons/Menu_colour.svg";
 import x from "@/assets/icons/x.svg";
 import {
   /* useParams, */
@@ -18,6 +17,8 @@ import {
   useSelectedLayoutSegments,
 } from "next/navigation";
 import { usePathname } from "next/navigation";
+import logo_transparent from "@/assets/images/logo_transparent.svg";
+import logo_colour from "@/assets/images/logo_colour.svg";
 
 export default function Header() {
   const router = useRouter();
@@ -29,6 +30,22 @@ export default function Header() {
 
   const items = ["products", "company"];
   const [touchedMenuIcon, setTouchedMenuIcon] = useState(false);
+  const [bgColor, setBgColor] = useState("transparent");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setBgColor("#fff");
+      } else {
+        setBgColor("transparent");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const pathname = usePathname();
 
@@ -46,15 +63,20 @@ export default function Header() {
 
   const Screen1440 = () => {
     return (
-      <div className="flex justify-center bg-[#211837] fixed w-full z-50">
-        <header className="flex flex-col px-10 py-5 w-full max-w-[1440px] mx-auto">
+      <div className={`flex justify-center fixed w-full z-50 bg-[${bgColor}]`}>
+        <header
+          className={`flex flex-col px-10 py-5 w-full max-w-[1440px] mx-auto `}
+        >
           <div className="flex flex-row w-full justify-between items-center px-2">
             <Link
-              href="/company"
+              href={`/${locale}/company`}
               className="flex flex-row justify-between items-center min-w-[245px] w-[245px]"
             >
-              <Image src={ciCompanyIcon} alt="" className="w-[54px]" />
-              <Image src={ciCompanyImage} alt="" className="w-[180px]" />
+              {bgColor === "transparent" ? (
+                <Image src={logo_transparent} alt="" />
+              ) : (
+                <Image src={logo_colour} alt="" />
+              )}
             </Link>
             <div className="flex flex-row">
               <nav className="flex flex-row justify-center items-center">
@@ -63,13 +85,19 @@ export default function Header() {
                     <Link
                       key={item}
                       href={`/${locale}/${item}`}
-                      className={`flex flex-row px-5 cursor-pointer justify-center items-center text-white`}
+                      className={`flex flex-row px-5 cursor-pointer justify-center items-center`}
                     >
                       <span
-                        className={`w-full h-full text-base font-['Outfit'] uppercase tracking-tight ${
+                        className={`w-full h-full text-base font-['Outfit'] uppercase tracking-[0.16px] ${
+                          bgColor === "transparent"
+                            ? "text-white"
+                            : "text-black"
+                        } ${
                           pathname.includes(item)
-                            ? "font-bold"
-                            : "font-thin text-white/50"
+                            ? "font-semibold"
+                            : bgColor === "transparent"
+                            ? "font-light text-white/50"
+                            : "font-light text-black/50"
                         }`}
                       >
                         {t(`${item}`)}
@@ -78,7 +106,7 @@ export default function Header() {
                   );
                 })}
               </nav>
-              <ChangeLocale />
+              <ChangeLocale bgColor={bgColor} />
             </div>
           </div>
         </header>
@@ -106,27 +134,38 @@ export default function Header() {
     }, []);
 
     return (
-      <div className="flex justify-center bg-[#211837] fixed w-full z-50">
-        <header className="flex flex-col px-[8px] py-[6px] w-full max-w-[1440px] mx-auto">
+      <div className={`flex justify-center fixed w-full z-50 bg-[${bgColor}]`}>
+        <header
+          className={`flex flex-col px-[8px] py-[6px] w-full max-w-[1440px] mx-auto`}
+        >
           <div className="flex flex-row w-full justify-between items-center px-2">
-            <div className="flex flex-row justify-between items-center min-w-[175px] w-[175px] cursor-pointer">
-              <Image
-                src={ciCompanyIcon}
-                alt="company logo"
-                className="w-[38.38px]"
-              />
-              <Image
-                src={ciCompanyImage}
-                alt="company name"
-                className="w-[128.47px]"
-              />
+            <Link
+              href={`/${locale}/company`}
+              className="flex flex-row justify-between items-center min-w-[175px] w-[175px]"
+            >
+              {bgColor === "transparent" ? (
+                <Image src={logo_transparent} alt="" />
+              ) : (
+                <Image src={logo_colour} alt="" />
+              )}
+            </Link>
+            <div>
+              {bgColor === "transparent" ? (
+                <Image
+                  src={menu}
+                  alt="menu"
+                  className="cursor-pointer"
+                  onClick={handleTouchStart}
+                />
+              ) : (
+                <Image
+                  src={menu_colour}
+                  alt="menu"
+                  className="cursor-pointer"
+                  onClick={handleTouchStart}
+                />
+              )}
             </div>
-            <Image
-              src={menu}
-              alt="menu"
-              className="cursor-pointer"
-              onClick={handleTouchStart}
-            />
           </div>
         </header>
         {touchedMenuIcon && (
