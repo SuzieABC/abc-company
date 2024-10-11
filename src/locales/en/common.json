@@ -6,14 +6,14 @@
       "header": "Products",
       "item1": "ABC Wallet",
       "item2": "ABC Waas",
-      "item3": "BICSacn"
+      "item3": "BICScan"
     },
     "company":{
       "header": "Company",
       "item1": "About",
       "item2": "Partners",
       "item3": "Media",
-      "item4": "Contract"
+      "item4": "Contact"
     },
     "connect":{
       "header": "Connect",
