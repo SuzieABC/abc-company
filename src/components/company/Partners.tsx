@@ -29,7 +29,7 @@ export default function Partners() {
         <div className={`${s ? "mt-[40px]" : "mt-[60px]"} `}>
           <div
             className={`grid grid-cols-3 ${
-              s ? "gap-[8px]" : m ? "gap-[15px]" : "gap-[16px]"
+              s ? "gap-[8px]" : m ? "gap-[15px]" : "gap-[50px]"
             }`}
           >
             {partnersList?.map((item) => (
