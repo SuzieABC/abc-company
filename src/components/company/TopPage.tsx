@@ -24,65 +24,125 @@ export default function TopPage({ desc, desc_m, locale }: TopPageProps) {
   const l = windowWidth > 1439;
 
   return (
+    // <div
+    //   id="about"
+    //   className={`flex flex-col items-center justify-center h-screen w-full relative`}
+    //   style={{
+    //     backgroundImage: `url(${company_top_bg.src})`,
+    //     backgroundSize: "cover",
+    //   }}
+    // >
+    //   <div className="relative flex flex-col items-center justify-center h-full pt-[5%]">
+    //     <Image
+    //       src={s ? comapny_top_img_m : company_top_img_pc}
+    //       alt="dice"
+    //       className={`${s ? "" : ""} pb-[60px]`}
+    //     />
+    //     <Lottie
+    //       loop
+    //       animationData={company_top}
+    //       play
+    //       className={`absolute z-0 ${s ? "w-[300px]" : "h-[297px]"}`}
+    //       style={{
+    //         transform: "translate(-50%, -50%)",
+    //         top: "44%",
+    //         left: "50%",
+    //       }} // 중앙 정렬
+    //     />
+    //     <motion.div
+    //       initial={{ opacity: 0, y: 50 }}
+    //       whileInView={{ opacity: 1, y: 0 }}
+    //       viewport={{ once: false }}
+    //       transition={{
+    //         ease: "easeInOut",
+    //         duration: 2,
+    //         y: { duration: 1 },
+    //       }}
+    //     >
+    //       <div
+    //         className={`${
+    //           s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
+    //         }`}
+    //       >
+    //         <p
+    //           className={`text-center whitespace-pre ${
+    //             locale === "ko" ? "font-[Pretendard]" : "font-[Inter]"
+    //           } ${
+    //             s
+    //               ? "px-[16px] leading-[20.8px]"
+    //               : m
+    //               ? "px-[47px] leading-[27.2px]"
+    //               : "px-[252px] leading-[27.2px]"
+    //           }`}
+    //         >
+    //           {s ? desc_m : desc}
+    //         </p>
+    //       </div>
+    //     </motion.div>
+    //   </div>
+    // </div>
     <div
       id="about"
-      className={`flex flex-col items-center justify-center h-screen w-full relative ${
-        s ? "mt-[70px]" : "pt-[187px]"
-      }`}
+      className={`flex flex-col items-center justify-center h-screen w-full relative`}
       style={{
         backgroundImage: `url(${company_top_bg.src})`,
         backgroundSize: "cover",
       }}
     >
-      <div className="relative flex items-center justify-center h-full">
-        <Image
-          src={s ? comapny_top_img_m : company_top_img_pc}
-          alt="dice"
-          className={`${s ? "" : "p-[70px]"}`}
-        />
-        <Lottie
-          loop
-          animationData={company_top}
-          play
-          className={`absolute z-0 ${s ? "w-[300px]" : "h-[197px]"}`}
-          // style={{
-          //   transform: "translate(-50%, -50%)",
-          //   top: "50%",
-          //   left: "50%",
-          // }} // 중앙 정렬
-        />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{
-          ease: "easeInOut",
-          duration: 2,
-          y: { duration: 1 },
-        }}
+      <div
+        className={`relative flex flex-col items-center justify-center h-full ${
+          s ? "pt-[100px] pb-[1%]" : "pt-[5%] pb-[1%]"
+        } `}
       >
-        <div
-          className={`${
-            s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
-          }`}
+        <div className="relative">
+          {/* Lottie와 이미지를 감싸는 div */}
+          <Image src={s ? comapny_top_img_m : company_top_img_pc} alt="dice" />
+          <Lottie
+            loop
+            animationData={company_top}
+            play
+            className={`absolute z-10 ${s ? "w-[300px]" : "w-[420px]"}`}
+            style={{
+              transform: "translate(-50%, -50%)",
+              top: "50%", // 중앙 정렬
+              left: "50%", // 중앙 정렬
+            }} // 중앙 정렬
+          />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{
+            ease: "easeInOut",
+            duration: 2,
+            y: { duration: 1 },
+          }}
         >
-          <p
-            className={`text-center mb-[114.95px] whitespace-pre ${
-              locale === "ko" ? "font-[Pretendard]" : "font-[Inter]"
-            } ${
+          <div
+            className={`${
               s
-                ? "px-[16px] leading-[20.8px]"
-                : m
-                ? "px-[47px] leading-[27.2px]"
-                : "px-[252px] leading-[27.2px]"
+                ? "px-[14px] text-[16px] pb-[73.59px] mt-[40px]"
+                : "px-[14px] text-[20px] mt-[60px]"
             }`}
           >
-            {s ? desc_m : desc}
-          </p>
-        </div>
-      </motion.div>
+            <p
+              className={`text-center whitespace-pre ${
+                locale === "ko" ? "font-[Pretendard]" : "font-[Inter]"
+              } ${
+                s
+                  ? "px-[16px] leading-[20.8px]"
+                  : m
+                  ? "px-[47px] leading-[27.2px]"
+                  : "px-[252px] leading-[27.2px]"
+              }`}
+            >
+              {s ? desc_m : desc}
+            </p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
