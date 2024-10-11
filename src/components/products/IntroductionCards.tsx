@@ -145,7 +145,7 @@ export default function IntroductionCards({
         {img && (
           <div
             className={`flex justify-end ${
-              !(title === "ABC Wallet") ? "px-[14px]" : "pt-[41px]"
+              !(title === "ABC Wallet") ? "px-[14px] pt-[44px]" : "pt-[0px]"
             }`}
           >
             <Image

@@ -24,63 +24,6 @@ export default function TopPage({ desc, desc_m, locale }: TopPageProps) {
   const l = windowWidth > 1439;
 
   return (
-    // <div
-    //   id="about"
-    //   className={`flex flex-col items-center justify-center h-screen w-full relative`}
-    //   style={{
-    //     backgroundImage: `url(${company_top_bg.src})`,
-    //     backgroundSize: "cover",
-    //   }}
-    // >
-    //   <div className="relative flex flex-col items-center justify-center h-full pt-[5%]">
-    //     <Image
-    //       src={s ? comapny_top_img_m : company_top_img_pc}
-    //       alt="dice"
-    //       className={`${s ? "" : ""} pb-[60px]`}
-    //     />
-    //     <Lottie
-    //       loop
-    //       animationData={company_top}
-    //       play
-    //       className={`absolute z-0 ${s ? "w-[300px]" : "h-[297px]"}`}
-    //       style={{
-    //         transform: "translate(-50%, -50%)",
-    //         top: "44%",
-    //         left: "50%",
-    //       }} // 중앙 정렬
-    //     />
-    //     <motion.div
-    //       initial={{ opacity: 0, y: 50 }}
-    //       whileInView={{ opacity: 1, y: 0 }}
-    //       viewport={{ once: false }}
-    //       transition={{
-    //         ease: "easeInOut",
-    //         duration: 2,
-    //         y: { duration: 1 },
-    //       }}
-    //     >
-    //       <div
-    //         className={`${
-    //           s ? "px-[14px] text-[16px] pb-[73.59px]" : "px-[14px] text-[20px]"
-    //         }`}
-    //       >
-    //         <p
-    //           className={`text-center whitespace-pre ${
-    //             locale === "ko" ? "font-[Pretendard]" : "font-[Inter]"
-    //           } ${
-    //             s
-    //               ? "px-[16px] leading-[20.8px]"
-    //               : m
-    //               ? "px-[47px] leading-[27.2px]"
-    //               : "px-[252px] leading-[27.2px]"
-    //           }`}
-    //         >
-    //           {s ? desc_m : desc}
-    //         </p>
-    //       </div>
-    //     </motion.div>
-    //   </div>
-    // </div>
     <div
       id="about"
       className={`flex flex-col items-center justify-center h-screen w-full relative`}
