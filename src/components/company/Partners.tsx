@@ -8,28 +8,32 @@ import { motion } from "framer-motion";
 export default function Partners() {
   const windowWidth = useWindowWidth();
 
-  const s = windowWidth < 1024;
-  const m = windowWidth > 1023 && windowWidth < 1440;
-  const l = windowWidth > 1439;
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
+  const l = windowWidth > 1023;
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   return (
     <div className="bg-white w-full flex justify-center" id="partners">
       <div
         className={`bg-white w-full ${
-          s ? "py-[60px] text-center px-[16px]" : "py-[160px] px-[40px]"
+          s || m ? "py-[60px] text-center px-[16px]" : "py-[160px] px-[40px]"
         }  max-w-[1440px] max-auto`}
       >
         <span
-          className={`text-black ${
-            s ? "text-[28px]" : "text-[50px]"
-          } font-extrabold font-['OutfitExtraBold'] uppercase`}
+          className={`text-black ${s || m ? "text-[28px]" : "text-[50px]"} ${
+            isIOS
+              ? "font-['OutfitBold'] tracking-[-0.03em]"
+              : "font-['OutfitExtraBold']"
+          } font-extrabold uppercase`}
         >
           OUR PARTNERS
         </span>
-        <div className={`${s ? "mt-[40px]" : "mt-[60px]"} `}>
+        <div className={`${s || m ? "mt-[40px]" : "mt-[60px]"} `}>
           <div
             className={`grid grid-cols-3 ${
-              s ? "gap-[8px]" : m ? "gap-[15px]" : "gap-[50px]"
+              s || m ? "gap-[7.96px]" : "gap-[15.82px]"
             }`}
           >
             {partnersList?.map((item) => (
@@ -52,9 +56,9 @@ export default function Partners() {
                   // } p-[1rem]`}
                 >
                   <Image
-                    src={item.image}
+                    src={s || m ? item.image_s : item.image}
                     alt={item.name}
-                    className="mix-blend-multiply"
+                    className="mix-blend-multiply w-full"
                   />
                 </div>
               </motion.div>

@@ -1,8 +1,6 @@
 "use client";
-
-import company_bottom_bg from "@/assets/images/company_bottom_bg.svg";
-import company_bottom_shape_L from "@/assets/images/company/company_bottom_shape_L.svg";
-import company_bottom_shape_S from "@/assets/images/company/company_bottom_shape_S.svg";
+import company_bottom_shape_L from "@/assets/images/company/Partner_pc.svg";
+import company_bottom_shape_S from "@/assets/images/company/Partner_mo.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
 
@@ -14,27 +12,27 @@ interface BottomPageProps {
 export default function BottomPage({ desc, locale }: BottomPageProps) {
   const windowWidth = useWindowWidth();
 
-  const s = windowWidth < 1024;
-  const m = windowWidth > 1023 && windowWidth < 1440;
-  const l = windowWidth > 1439;
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
+  // const l = windowWidth > 1023;
   return (
     <div
       id="contact"
       className="bg-[#0E0E23] w-full text-center"
       style={{
         backgroundImage: `url(${
-          s ? company_bottom_shape_S.src : company_bottom_shape_L.src
+          s || m ? company_bottom_shape_S.src : company_bottom_shape_L.src
         })`,
         // backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center top 25%",
         backgroundRepeat: "no-repeat",
       }}
     >
       <div
-        className={` font-['OutfitExtraBold'] mix-blend-color-dodge text-[#d9d9d9] text-[50px] font-extrabold uppercase ${
-          s
-            ? "pb-[24px] mt-[120px] leading-[45.6px]"
-            : "pb-[40px] mt-[201px] leading-[70px]"
+        className={` font-['OutfitExtraBold'] mix-blend-color-dodge text-[#d9d9d9]  font-extrabold uppercase ${
+          s || m
+            ? "pb-[24px] mt-[120px] leading-[45.6px] text-[40px]"
+            : "pb-[40px] mt-[201px] leading-[70px] text-[50px]"
         }`}
       >
         <motion.div
@@ -68,17 +66,27 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
       >
         <div className={`${s ? "mb-[122px]" : "mb-[201px]"}`}>
           <p
-            className={`pb-[18px] text-center text-white  font-light font-['Outfit']  ${
+            className={`pb-[18px] text-center text-white  font-light font-['OutfitLight']  ${
               s
                 ? "text-[24px] px-[30px] leading-[30.24px]"
+                : m
+                ? "text-[26px] px-[30px] leading-[30.24px]"
                 : "text-[40px] leading-[50px]"
             }`}
           >
-            {windowWidth < 600 ? (
+            {windowWidth < 600 && windowWidth > 321 ? (
               <span>
-                contact@ahnlabblockchain
+                contact@
                 <br />
-                .company
+                ahnlabblockchain.company
+              </span>
+            ) : windowWidth < 322 ? (
+              <span>
+                contact
+                <br />
+                @ahnlabblockchain.
+                <br />
+                company
               </span>
             ) : (
               <span>contact@ahnlabblockchain.company</span>
@@ -87,7 +95,9 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
           <p
             className={`text-center text-white font-[350] ${
               locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"
-            } leading-7 ${s ? "text-[17px] px-[38px]" : "text-[22px]"}`}
+            } leading-7 ${s && "whitespace-pre"} ${
+              s || m ? "text-[17px] px-[38px]" : "text-[22px]"
+            }`}
           >
             {desc}
           </p>

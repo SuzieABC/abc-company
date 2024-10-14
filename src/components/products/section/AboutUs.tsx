@@ -29,7 +29,7 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
           left: 0,
           right: 0,
           bottom: 0,
-          opacity: 0.6,
+          // opacity: 0.6,
           zIndex: -1,
         }}
       />
@@ -71,14 +71,14 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
 
           <Link
             href={`/${locale}/company`}
-            className={`py-[16px] px-[51px] bg-white rounded-[10px] justify-center items-center gap-2 inline-flex ${
-              s ? "mb-[110px] w-[180px]" : "mb-[180px] w-[240px]"
+            className={`py-[16px] bg-white rounded-[10px] justify-center items-center gap-2 inline-flex ${
+              s ? "mb-[110px] px-[38px]" : "mb-[180px] px-[51px]"
             }`}
           >
             <div
               className={`text-black ${
                 s ? "text-[16px]" : "text-[20px]"
-              } font-medium font-['Outfit'] uppercase leading-normal]`}
+              } font-medium font-['OutfitLight'] uppercase leading-normal]`}
             >
               <span>{buttonText}</span>
             </div>

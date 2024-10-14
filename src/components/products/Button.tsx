@@ -10,22 +10,22 @@ interface ButtonProps {
 export default function Button({ button, url, locale }: ButtonProps) {
   const windowWidth = useWindowWidth();
 
-  const s = windowWidth < 1024;
-  const m = windowWidth > 1023 && windowWidth < 1440;
-  const l = windowWidth > 1439;
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
+  const l = windowWidth > 1023;
 
   return (
     <Link href={url} target="_blank">
       <div
         className={`${
-          s ? "h-[43px] mb-[15px] px-[20px]" : "h-[56px] px-[36px]"
+          s || m ? "h-[43px] px-[20px]" : "h-[56px] px-[36px]"
         } py-4 px-[12px] bg-[#4b38db] rounded-[10px] justify-center items-center gap-2.5 inline-flex transition-colors duration-200 ease-in-out group hover:bg-[#281a93] active:bg-[#281a93]`}
       >
         <span
           className={`text-white ${
-            s ? "text-[16px]" : "text-[20px]"
+            s || m ? "text-[16px]" : "text-[20px]"
           } font-normal ${
-            locale === "ko" ? "font-['Pretendard']" : "font-['Outfit']"
+            locale === "ko" ? "font-['Pretendard']" : "font-['OutfitLight']"
           } leading-normal`}
         >
           {button}

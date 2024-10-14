@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import Image from "next/image";
 import { /* usePathname, */ useParams } from "next/navigation";
 import ciCompanyIcon from "@/assets/icons/ci_company_icon.png";
@@ -18,14 +17,31 @@ export default function Footer() {
   const windowWidth = useWindowWidth();
   const pathname = usePathname();
 
-  const menuHeaderStyle =
-    "text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] py-[10px]";
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
+  const l = windowWidth > 1023;
+
+  const isIOS = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+
+  const menuHeaderStyle = `text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-[0.14px] mr-[28px] py-[10px] smooth-scroll`;
   const menuStyle =
-    "text-white py-[10px] px-[20px] text-white/70 text-base font-light font-['Inter'] tracking-tight cursor-pointer t";
-  const menuHeaderStyleMobile =
-    "text-white text-black px-[12px] text-base font-bold font-['Outfit'] uppercase tracking-tight mr-[28px] cursor-pointer text-[14px]";
+    "text-white py-[10px] px-[20px] text-white/70 text-base font-light font-['Inter'] tracking-[0.14px] cursor-pointer smooth-scroll";
+  const menuHeaderStyleMobile = `text-white text-black px-[12px] text-base ${
+    isIOS ? "font-medium" : "font-bold"
+  } font-['Outfit'] uppercase tracking-[0.14px] mr-[28px] cursor-pointer text-[14px] smooth-scroll`;
   const menuStyleMobile =
-    "text-white pb-[10px] px-[12px] text-white/70 text-base font-light font-['Inter'] tracking-tight cursor-pointer text-[14px] pt-[10px] text-sm mb-[24px]";
+    "text-white pb-[10px] px-[12px] text-white/70 text-base font-light font-['Inter'] tracking-[0.14px] cursor-pointer text-[14px] pt-[10px] text-sm mb-[24px] smooth-scroll";
+
+  /**Scroll to the section */
+  // const scrollTo = (section:string) => {
+  //   const target = document.getElementById(section);
+  //   if (target) {
+  //     window.scrollTo({
+  //       top: target.offsetTop,
+  //       behavior: "smooth", // 부드러운 스크롤
+  //     });
+  //   }
+  // };
 
   const Screen1440 = () => {
     return (
@@ -45,6 +61,8 @@ export default function Footer() {
 
               <Link
                 href={`/${locale}/products#abcWallet`}
+                /**Scroll to the section */
+                // onClick={() => scrollTo("abcWallet")}
                 className={menuStyle}
               >
                 <span>{t("footer.products.item1")}</span>
@@ -136,7 +154,7 @@ export default function Footer() {
             />
           </div>
           <div className={`flex ${windowWidth < 1024 && "flex-col"}`}>
-            <Link href={pathname.includes("en") ? "/en/products" : "/products"}>
+            <Link href={`/${locale}/products#abcWallet`}>
               <div className={`${menuHeaderStyleMobile} mr-[28px]`}>
                 {t("footer.products.header")}
               </div>
@@ -235,7 +253,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="text-white/50 text-sm font-light font-['Inter'] tracking-tight pb-[80px] pt-[16px] px-[12px]">
+        <p className="text-white/50 text-[12px] font-light font-['Inter'] tracking-[0.12px] pb-[80px] pt-[16px] px-[12px]">
           © AhnLab Blockchain Company. All rights reserved.
         </p>
       </footer>

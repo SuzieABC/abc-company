@@ -5,9 +5,13 @@ import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import comingSoon from "@/assets/images/products/comingSoon.svg";
 import comingSoonM from "@/assets/images/products/comingSoon_m.svg";
 import ABC_Wallet_img_mobile from "@/assets/images/products/aaa.svg";
-import ABC_Waas_img_mobile from "@/assets/images/products/no_shadow_ABC WaaS_img.svg";
-import BICScan_img_mobile from "@/assets/images/products/no_shadow_BICScan_img.svg";
+import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_M.png";
+import BICScan_img_mobile from "@/assets/images/products/cards/bic_M.png";
 import { motion } from "framer-motion";
+
+import iphoneXL from "@/assets/images/products/cards/iphone_XL.png";
+import wassXL from "@/assets/images/products/cards/wass_XL.png";
+import bicXL from "@/assets/images/products/cards/bic_XL.png";
 
 interface IntroductionCardsProps {
   title: string;
@@ -31,27 +35,32 @@ export default function IntroductionCards({
   const upComing = highlight === "Coming Soon";
   const windowWidth = useWindowWidth();
 
-  const s = windowWidth < 1024;
-  const m = windowWidth > 1023 && windowWidth < 1440;
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  const xs = windowWidth < 360;
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
   const l = windowWidth > 1439;
 
   return (
-    <div className={`${s ? "pb-[20px]" : "text-left pb-[120px]"} w-[100%]`}>
+    <div
+      className={`${s || m ? "pb-[20px]" : "text-left pb-[120px]"} w-[100%]`}
+    >
       <div
         style={{
           backgroundImage: upComing
-            ? `url(${s ? comingSoonM.src : comingSoon.src})`
+            ? `url(${s || m ? comingSoonM.src : comingSoon.src})`
             : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
         className={`bg-[#F0F1F4] rounded-[32px] flex items-center ${
-          upComing || s
+          upComing || s || m
             ? "flex-col items-center"
-            : m
-            ? "justify-between pl-[60px]"
-            : "justify-between pl-[100px]"
+            : l
+            ? "justify-between pl-[100px]"
+            : "justify-between pl-[60px]"
         }  `}
       >
         <motion.div
@@ -69,36 +78,44 @@ export default function IntroductionCards({
               // !upComing ? l ?"pt-[90px]" :m?"pt-[78.5px]" : "pt-[52.5px]"
               !upComing && l
                 ? "py-[78.5px]"
-                : !upComing && m
-                ? "py-[52.5px]"
-                : !upComing && s && "pt-[40px]"
+                : // : !upComing && m
+                  // ? "py-[52.5px]"
+                  !upComing && (s || m) && "pt-[40px]"
             }`}
           >
             <div
               className={`text-[#4b38db] ${
-                s ? "text-[20px]" : "text-[28px]"
-              } font-bold ${
+                isIOS
+                  ? "font-['Outfit'] font-extrabold tracking-[-0.03em]"
+                  : "font-['OutfitBold']"
+              } ${s || m ? "text-[20px]" : "text-[28px]"} font-bold ${
                 upComing
-                  ? s
+                  ? s || m
                     ? "pt-[112px]"
                     : "pt-[146px] text-center"
-                  : "font-['OutfitBold']"
-              } mb-[20px] ${
+                  : ""
+              } mb-[16px] ${
                 upComing && locale === "ko"
-                  ? "font-['PretendardBold']"
-                  : "font-['OutfitBold']"
+                  ? isIOS
+                    ? "font-['PretendardBold']"
+                    : "font-['PretendardBold']"
+                  : ""
               }`}
             >
               {title}
             </div>
             <div
               className={`text-black ${
-                s
+                s || m
                   ? "whitespace-pre text-[30px] leading-[35.4px]"
                   : "text-[40px] leading-[52px]"
               } font-extrabold ${
                 locale === "ko" && !upComing
-                  ? "font-['pretendardExtraBold'] font-extrabold"
+                  ? isIOS
+                    ? `font-['pretendard'] font-extrabold tracking-[-0.03em]`
+                    : "font-['pretendardExtraBold'] font-extrabold"
+                  : isIOS
+                  ? `font-['Outfit'] font-extrabold tracking-[-0.03em]`
                   : "font-['OutfitExtraBold']"
               } uppercase ${
                 l ? "w-[426px] pr-[19px] whitespace-pre" : "w-[328px] "
@@ -111,14 +128,14 @@ export default function IntroductionCards({
             {!s && (
               <div
                 className={`text-black font-normal ${
-                  locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"
+                  locale === "ko"
+                    ? "font-['PretendardLight']"
+                    : "font-['Inter']"
                 } mt-[20px] m-auto ${l ? "w-[426px]" : "w-[318px]"} ${
-                  s
+                  m
                     ? "text-[16px] leading-[22.4px]"
                     : "text-[20px] leading-[27.2px]"
-                } ${!highlight.includes("wallet-as-a-") && "whitespace-pre"} ${
-                  highlight.includes("인텔리전스") && "whitespace-pre"
-                }`}
+                } ${!highlight.includes("wallet-as") && "whitespace-pre"}`}
               >
                 <p>{detail}</p>
               </div>
@@ -126,12 +143,12 @@ export default function IntroductionCards({
             <div
               className={`${
                 upComing
-                  ? s
+                  ? s || m
                     ? "pb-[112px]"
                     : m
-                    ? "pb-[127px]"
+                    ? "pt-[20px]"
                     : "pb-[128px]"
-                  : s
+                  : s || m
                   ? "pt-[20px]"
                   : "pt-[40px]"
               }`}
@@ -145,22 +162,40 @@ export default function IntroductionCards({
         {img && (
           <div
             className={`flex justify-end ${
-              !(title === "ABC Wallet") ? "px-[14px] pt-[44px]" : "pt-[0px]"
+              !(title === "ABC Wallet") ? "px-[14px] pt-[40px]" : "pt-[27.95px]"
             }`}
           >
             <Image
               src={
-                title === "ABC Wallet" && s && windowWidth > 555
-                  ? ABC_Wallet_img_mobile
-                  : title === "ABC WaaS" && s
+                title === "ABC Wallet" && l
+                  ? iphoneXL
+                  : title === "ABC Wallet" && (s || m)
+                  ? iphoneXL
+                  : title === "ABC WaaS" && l
+                  ? wassXL
+                  : title === "ABC WaaS" && (s || m)
                   ? ABC_Waas_img_mobile
-                  : title === "BICScan" && s
+                  : title === "BICScan" && l
+                  ? bicXL
+                  : title === "BICScan" && (s || m)
                   ? BICScan_img_mobile
                   : img
               }
               alt="ABC_wallet_img"
               className={`${
-                title === "ABC Wallet" ? (s ? "pt-[19.5px]" : "") : s ? "" : ""
+                title === "ABC Wallet" && l
+                  ? "mr-[40px] w-[647px] h-[537px]"
+                  : m
+                  ? "w-[647px] h-[537px] object-cover"
+                  : "w-[529px] h-[537px]"
+              } ${
+                title === "ABC Wallet"
+                  ? s || m
+                    ? "pt-[30px] object-cover"
+                    : ""
+                  : xs
+                  ? "object-cover"
+                  : ""
               }`}
             />
           </div>

@@ -8,9 +8,6 @@ import ChangeLocale from "./ChangeLocale";
 import { useTranslation } from "@/utils/localization/client";
 import type { LocaleTypes } from "@/utils/localization/settings";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import menu from "@/assets/icons/Menu.svg";
-import menu_colour from "@/assets/icons/Menu_colour.svg";
-import x from "@/assets/icons/x.svg";
 import {
   /* useParams, */
   useRouter,
@@ -19,6 +16,9 @@ import {
 import { usePathname } from "next/navigation";
 import logo_transparent from "@/assets/images/logo_transparent.svg";
 import logo_colour from "@/assets/images/logo_colour.svg";
+import menu from "@/assets/icons/Menu.svg";
+import menu_colour from "@/assets/icons/Menu_colour.svg";
+import x from "@/assets/icons/x.svg";
 
 export default function Header() {
   const router = useRouter();
@@ -63,13 +63,17 @@ export default function Header() {
 
   const Screen1440 = () => {
     return (
-      <div className={`flex justify-center fixed w-full z-50 bg-[${bgColor}]`}>
+      <div
+        className={`flex justify-center fixed w-full z-50 ${
+          bgColor === "transparent" ? "bg-[transparent]" : "bg-[#fff]"
+        }`}
+      >
         <header
-          className={`flex flex-col px-10 py-5 w-full max-w-[1440px] mx-auto `}
+          className={`flex flex-col px-10 py-[12px] w-full max-w-[1440px] mx-auto `}
         >
           <div className="flex flex-row w-full justify-between items-center px-2">
             <Link
-              href={`/${locale}/company`}
+              href={`/${locale}/products`}
               className="flex flex-row justify-between items-center min-w-[245px] w-[245px]"
             >
               {bgColor === "transparent" ? (
@@ -88,7 +92,7 @@ export default function Header() {
                       className={`flex flex-row px-5 cursor-pointer justify-center items-center`}
                     >
                       <span
-                        className={`w-full h-full text-base font-['Outfit'] uppercase tracking-[0.16px] ${
+                        className={`w-full h-full text-base font-['OutfitLight'] uppercase tracking-[0.16px] ${
                           bgColor === "transparent"
                             ? "text-white"
                             : "text-black"
@@ -133,6 +137,8 @@ export default function Header() {
       };
     }, []);
 
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
     return (
       <div className={`flex justify-center fixed w-full z-50 bg-[${bgColor}]`}>
         <header
@@ -140,13 +146,17 @@ export default function Header() {
         >
           <div className="flex flex-row w-full justify-between items-center px-2">
             <Link
-              href={`/${locale}/company`}
+              href={`/${locale}/products`}
               className="flex flex-row justify-between items-center min-w-[175px] w-[175px]"
             >
               {bgColor === "transparent" ? (
-                <Image src={logo_transparent} alt="" />
+                <Image
+                  src={logo_transparent}
+                  alt="company_logo"
+                  className="my-[1.31px]"
+                />
               ) : (
-                <Image src={logo_colour} alt="" />
+                <Image src={logo_colour} alt="company_logo" />
               )}
             </Link>
             <div>
@@ -177,7 +187,7 @@ export default function Header() {
               src={x}
               alt="close"
               onClick={handleTouchStart}
-              className="mx-[16px] mt-[26px] absolute top-0 right-0 cursor-pointer"
+              className="mx-[16px] mt-[26px] absolute top-0 right-0 cursor-pointer]"
             />
             <div className="mt-[10px]">
               <nav className="flex flex-col justify-center items-center">
@@ -189,9 +199,11 @@ export default function Header() {
                       className={`flex flex-row px-5 cursor-pointer justify-center items-center text-white pb-[8px]`}
                     >
                       <span
-                        className={`w-full h-full text-base font-['Outfit'] uppercase tracking-tight px-[20px] py-[12px] mb-[8px] ${
+                        className={`w-full h-full text-base font-['OutfitLight'] uppercase tracking-tight px-[20px] py-[12px] mb-[8px] ${
                           pathname.includes(item)
-                            ? "font-bold"
+                            ? isIOS
+                              ? "font-semibold"
+                              : "font-bold"
                             : "font-light text-white/50"
                         }`}
                       >
@@ -214,7 +226,7 @@ export default function Header() {
                 </span>
                 <div className="w-[1px] h-[20px] bg-white/30 mt-[13.5px]"></div>
                 <span
-                  className={`px-[20px] py-[13px] font-['Pretendard'] text-center text-base uppercase cursor-pointer ${
+                  className={`px-[20px] py-[13px] font-['OutfitLight'] text-center text-base uppercase cursor-pointer ${
                     pathname.includes("/en/")
                       ? "font-semibold"
                       : "text-white/50 font-light"
