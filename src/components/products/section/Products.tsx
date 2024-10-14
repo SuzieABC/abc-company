@@ -2,9 +2,11 @@
 
 import IntroductionCards from "@/components/products/IntroductionCards";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import ABC_Wallet_img from "@/assets/images/products/bbb.svg";
+import ABC_Wallet_img from "@/assets/images/products/cards/iphone_L.png";
 import ABC_WaaS_img from "@/assets/images/products/waasImage2.svg";
 import BICScan_img from "@/assets/images/products/bicImage2.svg";
+// import test from "@/assets/images/products/test.png";
+
 interface ProductsProps {
   walletTitle: string;
   walletHighlight: string;
@@ -37,18 +39,21 @@ export default function Products({
   locale,
 }: ProductsProps) {
   const windowWidth = useWindowWidth();
+  const s = windowWidth < 600;
+  const m = windowWidth > 599 && windowWidth < 1024;
+  const l = windowWidth > 1023;
 
   return (
     <div
       className={`flex flex-col justify-center items-center  pb-[40px] ${
-        windowWidth > 1023 ? "px-[40px] pt-[160px]" : "px-[16px] pt-[40px]"
-      } w-[100%] bg-white`}
+        windowWidth > 1023 ? "px-[40px] pt-[160px]" : "px-[16px] pt-[60px]"
+      } w-full overflow-y-scroll bg-white`}
     >
       <div className="max-w-[1440px] w-[100%] max-auto">
         <div
           id="abcWallet"
           style={{
-            scrollMarginTop: "94px",
+            scrollMarginTop: s || m ? "53px" : "78px",
           }}
         >
           <IntroductionCards
@@ -65,7 +70,7 @@ export default function Products({
         <div
           id="abcWaas"
           style={{
-            scrollMarginTop: "94px",
+            scrollMarginTop: s || m ? "53px" : "78px",
           }}
         >
           <IntroductionCards
@@ -82,7 +87,7 @@ export default function Products({
         <div
           id="bicScan"
           style={{
-            scrollMarginTop: "94px",
+            scrollMarginTop: s || m ? "53px" : "78px",
           }}
         >
           <IntroductionCards
