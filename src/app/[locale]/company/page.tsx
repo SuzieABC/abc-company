@@ -18,6 +18,7 @@ export default async function Page({
       <TopPage
         desc={t("description")}
         desc_m={t("description_m")}
+        desc_t={t("description_t")}
         locale={locale}
       />
       <Partners />
