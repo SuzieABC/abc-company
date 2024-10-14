@@ -18,6 +18,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
@@ -30,10 +31,14 @@ body {
   font-family: 'OutfitLight'; 
   src: url('../assets/fonts/OutfitLight.ttf');
 }
+@font-face {
+  font-family: 'OutfitRegular'; 
+  src: url('../assets/fonts/Outfit-Regular.ttf');
+}
 
 @font-face {
   font-family: 'Outfit'; 
-  src: url('../assets/fonts/OutfitRegular.ttf');
+  src: url('../assets/fonts/Outfit-SemiBold.ttf');
 }
 
 @font-face {
@@ -58,6 +63,11 @@ body {
 
 @font-face {
   font-family: 'Pretendard';
+  src: url('../assets/fonts/Pretendard-Medium.otf');
+}
+
+@font-face {
+  font-family: 'PretendardLight';
   src: url('../assets/fonts/Pretendard-Regular.otf');
 }
 
