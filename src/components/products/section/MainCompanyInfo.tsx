@@ -15,7 +15,7 @@ export default function MainCompanyInfo({
 }: MainCompanyInfoProps) {
   const windowWidth = useWindowWidth();
 
-  const s = windowWidth < 600;
+  // const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
   const l = windowWidth > 1023;
 
@@ -28,7 +28,7 @@ export default function MainCompanyInfo({
     >
       <div className="text-center flex flex-col items-center">
         <p
-          className={`text-center text-white  font-semibold font-['Outfit'] ${
+          className={`text-center text-white font-semibold font-outfitSemibold ${
             l
               ? "mx-0 text-[56px] pb-[40px]"
               : m
@@ -43,9 +43,9 @@ export default function MainCompanyInfo({
             l
               ? "text-3xl"
               : m
-              ? "text-center text-white text-base font-light font-['Inter'] leading-tight"
+              ? "text-center text-white text-base font-light font-inter leading-tight"
               : "text-base leading-tight whitespace-pre"
-          } ${locale === "ko" ? "font-['PretendardLight']" : "font-['Inter']"}`}
+          } ${locale === "ko" ? "font-pretendard" : "font-interLight"}`}
         >
           {company_detail}
         </p>

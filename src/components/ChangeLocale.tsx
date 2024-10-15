@@ -80,8 +80,10 @@ const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
             onClick={() => handleLocaleChange("ko")}
           >
             <span
-              className={`text-center text-base font-semibold font-['PretendardLight'] uppercase tracking-tight ${
-                !pathname.includes("/en/") ? "text-black" : "text-black/50"
+              className={`text-center text-base uppercase tracking-tight ${
+                !pathname.includes("/en/")
+                  ? "text-black font-pretendardSemibold"
+                  : "text-black/50 font-pretendard"
               }`}
             >
               한국어
@@ -93,8 +95,10 @@ const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
             onClick={() => handleLocaleChange("en")}
           >
             <span
-              className={`text-center  text-base font-semibold font-['PretendardLight'] uppercase tracking-tight ${
-                pathname.includes("/en/") ? "text-black" : "text-black/50"
+              className={`text-center text-base uppercase tracking-tight ${
+                pathname.includes("/en/")
+                  ? "text-black font-pretendardSemibold"
+                  : "text-black/50 font-pretendard"
               }`}
             >
               English

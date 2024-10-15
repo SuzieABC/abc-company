@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import Button from "./Button";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import comingSoon from "@/assets/images/products/comingSoon.svg";
 import comingSoonM from "@/assets/images/products/comingSoon_m.svg";
-import ABC_Wallet_img_mobile from "@/assets/images/products/aaa.svg";
 import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_M.png";
 import BICScan_img_mobile from "@/assets/images/products/cards/bic_M.png";
 import { motion } from "framer-motion";
@@ -36,14 +34,6 @@ export default function IntroductionCards({
 }: IntroductionCardsProps) {
   const upComing = highlight === "Coming Soon";
   const windowWidth = useWindowWidth();
-
-  const [isIOS, setIsIOS] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
-    }
-  }, []);
 
   const xs = windowWidth < 360;
   const s = windowWidth < 600;
@@ -92,11 +82,9 @@ export default function IntroductionCards({
             }`}
           >
             <div
-              className={`text-[#4b38db] ${
-                isIOS
-                  ? "font-['Outfit'] font-extrabold tracking-[-0.03em]"
-                  : "font-['OutfitBold']"
-              } ${s || m ? "text-[20px]" : "text-[28px]"} font-bold ${
+              className={`text-[#4b38db] font-outfitExtrabold ${
+                s || m ? "text-[20px]" : "text-[28px]"
+              } font-bold ${
                 upComing
                   ? s || m
                     ? "pt-[112px]"
@@ -104,10 +92,8 @@ export default function IntroductionCards({
                   : ""
               } mb-[16px] ${
                 upComing && locale === "ko"
-                  ? isIOS
-                    ? "font-['PretendardBold']"
-                    : "font-['PretendardBold']"
-                  : ""
+                  ? "font-pretendardExtrabold"
+                  : "font-outfitExtrabold"
               }`}
             >
               {title}
@@ -119,12 +105,8 @@ export default function IntroductionCards({
                   : "text-[40px] leading-[52px]"
               } font-extrabold ${
                 locale === "ko" && !upComing
-                  ? isIOS
-                    ? `font-['pretendard'] font-extrabold tracking-[-0.03em]`
-                    : "font-['pretendardExtraBold'] font-extrabold"
-                  : isIOS
-                  ? `font-['Outfit'] font-extrabold tracking-[-0.03em]`
-                  : "font-['OutfitExtraBold']"
+                  ? "font-pretendardExtrabold"
+                  : "font-outfitExtrabold"
               } uppercase ${
                 l ? "w-[426px] pr-[19px] whitespace-pre" : "w-[328px] "
               } ${highlight.includes("wallet-as-a-") && "whitespace-pre"} ${
@@ -136,9 +118,7 @@ export default function IntroductionCards({
             {!s && (
               <div
                 className={`text-black font-normal ${
-                  locale === "ko"
-                    ? "font-['PretendardLight']"
-                    : "font-['Inter']"
+                  locale === "ko" ? "font-pretendardLight" : "font-inter"
                 } mt-[20px] m-auto ${l ? "w-[426px]" : "w-[318px]"} ${
                   m
                     ? "text-[16px] leading-[22.4px]"
@@ -201,7 +181,7 @@ export default function IntroductionCards({
                     : ""
                   : xs
                   ? "object-cover h-[324px]"
-                  : "object-scale-down h-[324px] rounded-bl-lg rounded-br-lg"
+                  : "object-scale-down h-auto rounded-bl-lg rounded-br-lg"
               }`}
             />
           </div>

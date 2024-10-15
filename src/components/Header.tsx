@@ -92,16 +92,16 @@ export default function Header() {
                       className={`flex flex-row px-5 cursor-pointer justify-center items-center`}
                     >
                       <span
-                        className={`w-full h-full text-base font-['OutfitLight'] uppercase tracking-[0.16px] ${
+                        className={`text-base uppercase tracking-[0.16px] ${
                           bgColor === "transparent"
                             ? "text-white"
                             : "text-black"
                         } ${
                           pathname.includes(item)
-                            ? "font-semibold"
+                            ? "font-light font-outfitSemibold"
                             : bgColor === "transparent"
-                            ? "font-light text-white/50"
-                            : "font-light text-black/50"
+                            ? "text-white/50 font-outfitLight"
+                            : "text-black/50 font-outfitLight"
                         }`}
                       >
                         {t(`${item}`)}
@@ -135,14 +135,6 @@ export default function Header() {
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, []);
-
-    const [isIOS, setIsIOS] = useState(false);
-
-    useEffect(() => {
-      if (typeof navigator !== "undefined") {
-        setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
-      }
     }, []);
 
     return (
@@ -186,7 +178,7 @@ export default function Header() {
         </header>
         {touchedMenuIcon && (
           <div
-            className="flex flex-col absolute top-0 bg-[#0E0E23] pt-[62px] pb-[24px] w-full"
+            className="flex flex-col absolute top-0 bg-[#0E0E23] pt-[62px] pb-[48px] w-full"
             ref={dropdownRef}
           >
             <Image
@@ -205,12 +197,10 @@ export default function Header() {
                       className={`flex flex-row px-5 cursor-pointer justify-center items-center text-white pb-[8px]`}
                     >
                       <span
-                        className={`w-full h-full text-base font-['OutfitLight'] uppercase tracking-tight px-[20px] py-[12px] mb-[8px] ${
+                        className={`w-full h-full text-base  uppercase tracking-tight px-[20px] py-[12px] mb-[8px] ${
                           pathname.includes(item)
-                            ? isIOS
-                              ? "font-semibold"
-                              : "font-bold"
-                            : "font-light text-white/50"
+                            ? "font-outfitSemibold"
+                            : "font-outfitLight text-white/50"
                         }`}
                       >
                         {t(`${item}`)}
@@ -221,7 +211,7 @@ export default function Header() {
               </nav>
               <div className="flex justify-center text-white text-center">
                 <span
-                  className={`px-[20px] py-[13px] font-['Pretendard']text-center text-base  cursor-pointer ${
+                  className={`px-[20px] py-[13px] font-pretendard text-center text-base  cursor-pointer tracking-[0.16px] ${
                     !pathname.includes("/en/")
                       ? "font-semibold"
                       : "text-white/50 font-light"
@@ -232,7 +222,7 @@ export default function Header() {
                 </span>
                 <div className="w-[1px] h-[20px] bg-white/30 mt-[13.5px]"></div>
                 <span
-                  className={`px-[20px] py-[13px] font-['OutfitLight'] text-center text-base uppercase cursor-pointer ${
+                  className={`px-[20px] py-[13px] font-outfitLight text-center text-base uppercase cursor-pointer tracking-[0.16px] ${
                     pathname.includes("/en/")
                       ? "font-semibold"
                       : "text-white/50 font-light"

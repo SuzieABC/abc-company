@@ -46,7 +46,7 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
           }}
         >
           <div
-            className={`text-center text-white text-[40px] font-light font-['OutfitLight'] ${
+            className={`text-center text-white text-[40px] font-light font-outfitLight ${
               s
                 ? "mx-[16px] pb-[32px] leading-[31.2px] text-[24px]"
                 : "mx-[40px] pb-[60px] leading-[56px] text-[40px]"
@@ -78,7 +78,7 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
             <div
               className={`text-black ${
                 s ? "text-[16px]" : "text-[20px]"
-              } font-medium font-['OutfitLight'] uppercase leading-normal]`}
+              } font-medium font-outfit uppercase leading-normal]`}
             >
               <span>{buttonText}</span>
             </div>

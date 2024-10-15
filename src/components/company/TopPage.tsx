@@ -1,18 +1,12 @@
 "use client";
 
-// import company_top_bg from "@/assets/images/company/company_top_bg.svg";
 import Image from "next/image";
-// import comapny_top_img_m from "@/assets/images/company/company_top_img_m.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
-import company_top from "../../../public/animations/company_top.json";
-import Lottie from "react-lottie-player";
 import company_top_img_pc from "@/assets/images/company/company_top_img_pc.svg";
 import company_top_bg from "@/assets/images/company/company_top_bg_pc.svg";
 import company_top_img_tablet from "@/assets/images/company/company_top_image_tablet.svg";
 import mobile from "@/assets/images/company/mobile.svg";
-import dice_S from "@/assets/images/company/dice_S.png";
-import dice_M from "@/assets/images/company/dice_M.png";
 import dice_L from "@/assets/images/company/dice_L.png";
 
 interface TopPageProps {
@@ -32,7 +26,7 @@ export default function TopPage({
 
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1023;
+  // const l = windowWidth > 1023;
 
   return (
     <div
@@ -54,7 +48,6 @@ export default function TopPage({
         } `}
       >
         <div className="relative">
-          {/* Lottie와 이미지를 감싸는 div */}
           <Image
             src={s ? mobile : m ? company_top_img_tablet : company_top_img_pc}
             alt="dice"
@@ -68,25 +61,12 @@ export default function TopPage({
             }`}
             style={{
               transform: "translate(-50%, -50%)",
-              top: "50%", // 중앙 정렬
-              left: "50%", // 중앙 정렬
+              top: "50%",
+              left: "50%",
             }}
           />
-          {/* <Lottie
-            loop
-            animationData={company_top}
-            play
-            className={`absolute z-10 ${
-              s ? "w-[300px]" : m ? "w-[350px]" : "w-[420px]"
-            }`}
-            style={{
-              transform: "translate(-50%, -50%)",
-              top: "50%", // 중앙 정렬
-              left: "50%", // 중앙 정렬
-            }} // 중앙 정렬
-          /> */}
         </div>
-        <div className="h-10%]">&nbsp;</div>
+        <div className="h-[10%]">&nbsp;</div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -107,7 +87,7 @@ export default function TopPage({
           >
             <p
               className={`text-center whitespace-pre  leading-[140%] ${
-                locale === "ko" ? "font-[PretendardLight]" : "font-[Inter]"
+                locale === "ko" ? "font-pretendardLight" : "font-inter"
               } ${s ? "px-[16px]" : m ? "px-[47px]" : "px-[252px]"}`}
             >
               {s ? desc_m : m ? desc_t : desc}

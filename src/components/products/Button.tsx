@@ -12,7 +12,7 @@ export default function Button({ button, url, locale }: ButtonProps) {
 
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1023;
+  // const l = windowWidth > 1023;
 
   return (
     <Link href={url} target="_blank">
@@ -25,7 +25,7 @@ export default function Button({ button, url, locale }: ButtonProps) {
           className={`text-white ${
             s || m ? "text-[16px]" : "text-[20px]"
           } font-normal ${
-            locale === "ko" ? "font-['Pretendard']" : "font-['OutfitLight']"
+            locale === "ko" ? "font-pretendard" : "font-outfit"
           } leading-normal`}
         >
           {button}

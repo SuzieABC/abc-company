@@ -18,7 +18,7 @@ export default function Media({ button }: MediaProps) {
   const windowWidth = useWindowWidth();
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1023;
+  // const l = windowWidth > 1023;
 
   const handleShowMore = () => {
     if (!isExpanded) {
@@ -50,11 +50,7 @@ export default function Media({ button }: MediaProps) {
         }`}
       >
         <div
-          className={`text-black font-extrabold ${
-            isIOS
-              ? "font-['OutfitBold'] tracking-[-0.03em]"
-              : "font-['OutfitExtraBold']"
-          } uppercase leading-[70px]   ${
+          className={`text-black font-extrabold font-outfitExtrabold uppercase leading-[70px]   ${
             s || m
               ? "pt-[60px] text-[28px] pb-[40px] text-center"
               : "pt-[160px] text-[50px] pb-[58px]"
@@ -94,11 +90,7 @@ export default function Media({ button }: MediaProps) {
                   overflow: "hidden",
                   wordBreak: "break-word",
                 }}
-                className={`px-[19px] pt-[21px]  text-black ${
-                  isIOS
-                    ? "font-bold font-['Pretendard']"
-                    : "font-semibold font-['PretendardLight']"
-                } line-clamp-2 break-word ${
+                className={`px-[19px] pt-[21px]  text-black font-pretendardSemibold line-clamp-2 break-word ${
                   s || m
                     ? "text-[17px] leading-[22.78px] mb-[16px]"
                     : "text-[23.14px] leading-[31.01px] mb-[58px]"
@@ -107,7 +99,7 @@ export default function Media({ button }: MediaProps) {
                 {item.title}
               </div>
               <button
-                className={`bg-[#e0e0e0] uppercase font-['Outfit'] text-black font-medium rounded-[28.92px] py-[9.64px] px-[19.28px] ml-[19px] ${
+                className={`bg-[#e0e0e0] uppercase font-outfit text-black font-medium rounded-[28.92px] py-[9.64px] px-[19.28px] ml-[19px] ${
                   s
                     ? "mb-[24px] text-[13px]"
                     : m
@@ -116,7 +108,7 @@ export default function Media({ button }: MediaProps) {
                 }`}
                 onClick={handleShowMore} // 버튼 클릭 시 상태 변경
               >
-                <div className="uppercase font-['Outfit']">{item.tag}</div>
+                <div className="uppercase font-outfit">{item.tag}</div>
               </button>
             </a>
           ))}
@@ -128,7 +120,7 @@ export default function Media({ button }: MediaProps) {
           }`}
         >
           <span
-            className={`text-black font-medium font-['OutfitRegular'] uppercase leading-relaxed mr-[8px] flex ${
+            className={`text-black font-medium font-outfit uppercase leading-relaxed mr-[8px] flex ${
               s || m ? "text-[16px]" : "text-[21px]"
             }`}
             onClick={handleShowMore}

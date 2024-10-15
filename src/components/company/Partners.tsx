@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import partnersList from "@/data/partnersData";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import Image from "next/image";
@@ -11,15 +10,7 @@ export default function Partners() {
 
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1023;
-
-  const [isIOS, setIsIOS] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
-    }
-  }, []);
+  // const l = windowWidth > 1023;
 
   return (
     <div className="bg-white w-full flex justify-center" id="partners">
@@ -29,11 +20,9 @@ export default function Partners() {
         }  max-w-[1440px] max-auto`}
       >
         <span
-          className={`text-black ${s || m ? "text-[28px]" : "text-[50px]"} ${
-            isIOS
-              ? "font-['OutfitBold'] tracking-[-0.03em]"
-              : "font-['OutfitExtraBold']"
-          } font-extrabold uppercase`}
+          className={`text-black ${
+            s || m ? "text-[28px]" : "text-[50px]"
+          } font-outfitExtrabold font-extrabold uppercase`}
         >
           OUR PARTNERS
         </span>

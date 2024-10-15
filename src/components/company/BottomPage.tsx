@@ -29,7 +29,7 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
       }}
     >
       <div
-        className={` font-['OutfitExtraBold'] mix-blend-color-dodge text-[#d9d9d9]  font-extrabold uppercase ${
+        className={`font-outfitExtrabold mix-blend-color-dodge text-[#d9d9d9]  font-extrabold uppercase ${
           s || m
             ? "pb-[24px] mt-[120px] leading-[45.6px] text-[40px]"
             : "pb-[40px] mt-[201px] leading-[70px] text-[50px]"
@@ -66,7 +66,7 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
       >
         <div className={`${s ? "mb-[122px]" : "mb-[201px]"}`}>
           <p
-            className={`pb-[18px] text-center text-white  font-light font-['OutfitLight']  ${
+            className={`pb-[18px] text-center text-white font-light font-outfitLight ${
               s
                 ? "text-[24px] px-[30px] leading-[30.24px]"
                 : m
@@ -93,8 +93,8 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
             )}
           </p>
           <p
-            className={`text-center text-white font-[350] ${
-              locale === "ko" ? "font-['Pretendard']" : "font-['Inter']"
+            className={`text-center text-white ${
+              locale === "ko" ? "font-pretendard" : "font-interLight"
             } leading-7 ${s && "whitespace-pre"} ${
               s || m ? "text-[17px] px-[38px]" : "text-[22px]"
             }`}

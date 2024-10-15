@@ -2,10 +2,11 @@
 
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
-import products_top from "../../../../public/animations/products_top_test.json";
 import Lottie from "react-lottie-player";
+import products_top from "../../../../public/animations/products_top.json";
 import product_top_bg_pc from "@/assets/images/products/product_top_bg_pc.svg";
 import product_top_bg_mo from "@/assets/images/products/products_top_bg_mo.svg";
+
 interface MainTopPageProps {
   title: string;
   subTitle: string;
@@ -63,9 +64,9 @@ export default function MainTopPage({
         }}
       >
         <div
-          className={`text-center text-white  font-extrabold font-['OutfitExtraBold'] uppercase whitespace-pre-wrap flex-wrap ${
+          className={`text-center text-white  font-extrabold font-outfitExtrabold uppercase whitespace-pre-wrap flex-wrap ${
             windowWidth > 1023
-              ? "text-[70px] leading-[84px] w-[593px]"
+              ? "text-[70px] leading-[84px] w-[700px]"
               : "text-[40px] leading-[49.6px] w-[258px]"
           }`}
         >
@@ -85,12 +86,10 @@ export default function MainTopPage({
           }}
         >
           <div
-            className={`text-center text-white pt-[20px]  ${
+            className={`text-center text-white pt-[20px] ${
               m ? "text-[16px] leading-tight" : "text-[22px] leading-7"
             } whitespace-pre font-light ${
-              locale === "ko"
-                ? "font-['Pretendard']"
-                : "font-['InterExtraLight']"
+              locale === "ko" ? "font-pretendard" : "font-inter"
             }`}
           >
             {subTitle}
