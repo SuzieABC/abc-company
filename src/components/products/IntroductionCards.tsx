@@ -1,4 +1,6 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import Button from "./Button";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
@@ -35,7 +37,13 @@ export default function IntroductionCards({
   const upComing = highlight === "Coming Soon";
   const windowWidth = useWindowWidth();
 
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+    }
+  }, []);
 
   const xs = windowWidth < 360;
   const s = windowWidth < 600;
@@ -167,9 +175,7 @@ export default function IntroductionCards({
           >
             <Image
               src={
-                title === "ABC Wallet" && l
-                  ? iphoneXL
-                  : title === "ABC Wallet" && (s || m)
+                title === "ABC Wallet"
                   ? iphoneXL
                   : title === "ABC WaaS" && l
                   ? wassXL
@@ -185,17 +191,17 @@ export default function IntroductionCards({
               className={`${
                 title === "ABC Wallet" && l
                   ? "mr-[40px] w-[647px] h-[537px]"
-                  : m
+                  : s || m
                   ? "w-[647px] h-[537px] object-cover"
-                  : "w-[529px] h-[537px]"
+                  : "w-[529px] h-[509px]"
               } ${
                 title === "ABC Wallet"
                   ? s || m
                     ? "pt-[30px] object-cover"
                     : ""
                   : xs
-                  ? "object-cover"
-                  : ""
+                  ? "object-cover h-[324px]"
+                  : "object-scale-down h-[324px] rounded-bl-lg rounded-br-lg"
               }`}
             />
           </div>

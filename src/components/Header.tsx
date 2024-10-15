@@ -137,7 +137,13 @@ export default function Header() {
       };
     }, []);
 
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const [isIOS, setIsIOS] = useState(false);
+
+    useEffect(() => {
+      if (typeof navigator !== "undefined") {
+        setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+      }
+    }, []);
 
     return (
       <div className={`flex justify-center fixed w-full z-50 bg-[${bgColor}]`}>

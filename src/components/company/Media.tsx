@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import MEDIA_LIST from "@/data/mediaData";
 import arrowDown from "@/assets/icons/arrow_down.svg";
@@ -29,7 +29,13 @@ export default function Media({ button }: MediaProps) {
     setIsExpanded((prev) => !prev); // 상태 토글
   };
 
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+    }
+  }, []);
 
   return (
     <div
@@ -110,9 +116,7 @@ export default function Media({ button }: MediaProps) {
                 }`}
                 onClick={handleShowMore} // 버튼 클릭 시 상태 변경
               >
-                <button className="uppercase font-['Outfit']">
-                  {item.tag}
-                </button>
+                <div className="uppercase font-['Outfit']">{item.tag}</div>
               </button>
             </a>
           ))}

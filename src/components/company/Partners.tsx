@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import partnersList from "@/data/partnersData";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import Image from "next/image";
@@ -12,7 +13,13 @@ export default function Partners() {
   const m = windowWidth > 599 && windowWidth < 1024;
   const l = windowWidth > 1023;
 
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+    }
+  }, []);
 
   return (
     <div className="bg-white w-full flex justify-center" id="partners">

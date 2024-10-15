@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { /* usePathname, */ useParams } from "next/navigation";
 import ciCompanyIcon from "@/assets/icons/ci_company_icon.png";
@@ -21,7 +22,13 @@ export default function Footer() {
   const m = windowWidth > 599 && windowWidth < 1024;
   const l = windowWidth > 1023;
 
-  const isIOS = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+    }
+  }, []);
 
   const menuHeaderStyle = `text-white px-[20px] text-black text-base font-bold font-['Outfit'] uppercase tracking-[0.14px] mr-[28px] py-[10px] smooth-scroll`;
   const menuStyle =
