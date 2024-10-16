@@ -77,7 +77,7 @@ export default function IntroductionCards({
             }`}
           >
             <div
-              className={`text-[#4b38db] font-outfitExtrabold ${
+              className={`text-[#4b38db] font-outfitSemibold ${
                 s || m ? "text-[20px]" : "text-[28px]"
               } font-bold ${upComing && (s || m) && "pt-[50px]"} ${
                 upComing
@@ -88,7 +88,7 @@ export default function IntroductionCards({
               } mb-[16px] ${
                 upComing && locale === "ko"
                   ? "font-pretendardExtrabold"
-                  : "font-outfitExtrabold"
+                  : "font-outfitSemibold"
               }`}
             >
               {title}
@@ -100,7 +100,7 @@ export default function IntroductionCards({
                   : "text-[40px] leading-[52px]"
               } font-extrabold ${
                 locale === "ko" && !upComing
-                  ? "font-pretendardSemibold"
+                  ? "font-pretendardExtrabold"
                   : "font-outfitExtrabold"
               } uppercase ${
                 l ? "w-[426px] pr-[19px] whitespace-pre" : "w-[328px] "

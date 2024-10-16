@@ -46,77 +46,78 @@ export default function TopPage({
       }}
     >
       <div
-        className={`flex flex-col items-center justify-center py-[10px] ${
-          s || m || l ? "" : ""
-        } h-full max-w-[1440px]`}
+        className={`flex flex-col items-center justify-center h-full max-w-[1440px]`}
       >
-        <div
-          className={`${
-            s ? "mt-[40px]" : m ? "mb-[40px]" : l ? "mb-[60px]" : ""
-          }`}
-        >
-          <Image
-            src={s ? dice_360 : m ? dice_600 : dice_600}
-            alt="dice"
-            className={`${s ? "px-[14px]" : l || xl ? "px-[11%]" : ""}`}
-            width={s ? 332 : m ? 375 : l ? 678 : 754}
-            height={s ? 286 : m ? 302 : l ? 531 : 612}
-          />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{
-            ease: "easeInOut",
-            duration: 2,
-            y: { duration: 1 },
-          }}
-        >
+        <div className="flex flex-col items-center py-[10px]">
           <div
-            className={`flex-col justify-start items-start px-[40px] ${
-              s || m ? "gap-2" : l ? "gap-5" : "gap-5"
-            } inline-flex`}
+            className={`${
+              s ? "mt-[40px]" : m ? "mb-[40px]" : l ? "mb-[60px]" : ""
+            }`}
+          >
+            <Image
+              src={s ? dice_360 : m ? dice_600 : dice_600}
+              alt="dice"
+              className={`${s ? "px-[14px]" : l || xl ? "px-[10%]" : ""}`}
+              width={s ? 332 : m ? 375 : l ? 678 : 754}
+              height={s ? 286 : m ? 302 : l ? 531 : 612}
+            />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              ease: "easeInOut",
+              duration: 2,
+              y: { duration: 1 },
+            }}
           >
             <div
-              className={`pt-[28px] self-stretch text-[#686dff] ${
-                s || m ? "text-[24px] text-center" : "text-[30px] "
-              } font-outfitExtrabold leading-[34.72px]`}
+              className={`flex-col justify-start items-start ${
+                s || m ? "px-[16px]" : "px-[40px]"
+              } ${s || m ? "gap-2" : l ? "gap-5" : "gap-5"} inline-flex`}
             >
-              About ABC
+              <div
+                className={`${
+                  s ? "pt-[28px]" : "pt-[35px]"
+                } self-stretch text-[#686dff] ${
+                  s || m ? "text-[24px] text-center" : "text-[30px] "
+                } font-outfitExtrabold leading-[34.72px]`}
+              >
+                About ABC
+              </div>
+              <div
+                className={`self-stretch ${
+                  s || m ? "text-center text-[16px]" : "text-[20px]"
+                } text-white ${
+                  locale === "ko"
+                    ? "font-pretendardLight whitespace-normal"
+                    : "font-interLight"
+                } leading-snug `}
+              >
+                {s ? (
+                  <span>
+                    {locale === "ko" && (
+                      <p className="whitespace-pre">{desc_m_1}</p>
+                    )}
+                    {locale === "ko" ? desc_m_2 : desc_m}
+                  </span>
+                ) : m ? (
+                  <span>
+                    {locale === "ko" && (
+                      <p className="whitespace-pre">{desc_m_1}</p>
+                    )}
+                    {locale === "ko" ? desc_m_2 : desc_t}
+                  </span>
+                ) : l ? (
+                  desc_l
+                ) : (
+                  desc
+                )}
+              </div>
             </div>
-            <div
-              className={`self-stretch ${
-                s || m ? "text-center text-[16px]" : "text-[20px]"
-              } text-white ${
-                locale === "ko"
-                  ? "font-pretendardLight whitespace-normal"
-                  : "font-interLight"
-              } leading-snug `}
-            >
-              {s ? (
-                <span>
-                  {locale === "ko" && (
-                    <p className="whitespace-pre">{desc_m_1}</p>
-                  )}
-                  {locale === "ko" ? desc_m_2 : desc_m}
-                </span>
-              ) : m ? (
-                <span>
-                  {locale === "ko" && (
-                    <p className="whitespace-pre">{desc_m_1}</p>
-                  )}
-                  {locale === "ko" ? desc_m_2 : desc_t}
-                </span>
-              ) : l ? (
-                desc_l
-              ) : (
-                desc
-              )}
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
