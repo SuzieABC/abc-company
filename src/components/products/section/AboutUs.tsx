@@ -14,8 +14,8 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
-  const m = windowWidth > 1023 && windowWidth < 1440;
-  const l = windowWidth > 1439;
+  // const m = windowWidth > 1023 && windowWidth < 1440;
+  // const l = windowWidth > 1439;
 
   return (
     <div className=" w-screen" style={{ position: "relative" }}>

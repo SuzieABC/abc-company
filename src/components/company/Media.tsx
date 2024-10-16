@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import MEDIA_LIST from "@/data/mediaData";
 import arrowDown from "@/assets/icons/arrow_down.svg";
@@ -28,14 +28,6 @@ export default function Media({ button }: MediaProps) {
     }
     setIsExpanded((prev) => !prev); // 상태 토글
   };
-
-  const [isIOS, setIsIOS] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
-    }
-  }, []);
 
   return (
     <div
@@ -99,12 +91,12 @@ export default function Media({ button }: MediaProps) {
                 {item.title}
               </div>
               <button
-                className={`bg-[#e0e0e0] uppercase font-outfit text-black font-medium rounded-[28.92px] py-[9.64px] px-[19.28px] ml-[19px] ${
+                className={`bg-[#e0e0e0] uppercase font-outfit text-black font-medium rounded-[28.92px] ml-[19px] ${
                   s
-                    ? "mb-[24px] text-[13px]"
+                    ? "mb-[24px] text-[13px] py-[8px] px-[15px]"
                     : m
-                    ? "mb-[22px] text-[12.125px]"
-                    : "mb-[49px] text-[14.09px]"
+                    ? "mb-[22px] text-[12.125px] py-[9.64px] px-[19px]"
+                    : "mb-[49px] text-[14.09px] py-[9.64px] px-[19px]"
                 }`}
                 onClick={handleShowMore} // 버튼 클릭 시 상태 변경
               >

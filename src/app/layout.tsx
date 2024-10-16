@@ -1,87 +1,19 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {
+  geistSans,
+  geistMono,
+  inter,
+  interLight,
+  pretendard,
+  pretendardLight,
+  pretendardSemibold,
+  pretendardExtrabold,
+  outfit,
+  outfitLight,
+  outfitSemibold,
+  outfitExtrabold,
+} from "@/styles/fonts";
 import "@/styles/globals.css";
-
-const geistSans = localFont({
-  src: "./../assets/fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./../assets/fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-const inter = localFont({
-  src: "./../assets/fonts/Inter-Regular.otf",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-inter",
-});
-
-const interLight = localFont({
-  src: "./../assets/fonts/Inter-Light.ttf",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-interLight",
-});
-
-const pretendard = localFont({
-  src: "./../assets/fonts/Pretendard-Medium.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendard",
-});
-
-const pretendardLight = localFont({
-  src: "./../assets/fonts/Pretendard-Light.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendardSemibold",
-});
-
-const pretendardSemibold = localFont({
-  src: "./../assets/fonts/Pretendard-SemiBold.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendardSemibold",
-});
-
-const pretendardExtrabold = localFont({
-  src: "./../assets/fonts/Pretendard-ExtraBold.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendardExtrabold",
-});
-
-const outfit = localFont({
-  src: "./../assets/fonts/Outfit-Medium.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-outfit",
-});
-
-const outfitLight = localFont({
-  src: "./../assets/fonts/Outfit-Light.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-outfitLight",
-});
-
-const outfitSemibold = localFont({
-  src: "./../assets/fonts/Outfit-SemiBold.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-outfitSemibold",
-});
-
-const outfitExtrabold = localFont({
-  src: "./../assets/fonts/Outfit-ExtraBold.woff",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-outfitExtrabold",
-});
 
 export const metadata: Metadata = {
   title: "AhnLab Blockchain Company(ABC)",
@@ -120,7 +52,7 @@ export default function RootLayout({
           ${outfitLight.variable} 
           ${outfitSemibold.variable} 
           ${outfitExtrabold.variable} 
-           antialiased bg-[#211837]`}
+          antialiased bg-[#211837]`}
       >
         {children}
       </body>

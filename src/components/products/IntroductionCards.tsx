@@ -1,17 +1,16 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
 import Button from "./Button";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import comingSoon from "@/assets/images/products/comingSoon.svg";
-import comingSoonM from "@/assets/images/products/comingSoon_m.svg";
-import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_M.png";
-import BICScan_img_mobile from "@/assets/images/products/cards/bic_M.png";
 import { motion } from "framer-motion";
-
+import Image, { StaticImageData } from "next/image";
 import iphoneXL from "@/assets/images/products/cards/iphone_XL.png";
 import wassXL from "@/assets/images/products/cards/wass_XL.png";
 import bicXL from "@/assets/images/products/cards/bic_XL.png";
+import comingSoon from "@/assets/images/products/AML.svg";
+import comingSoonM from "@/assets/images/products/AML_mo.svg";
+import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_M.png";
+import BICScan_img_mobile from "@/assets/images/products/cards/bic_M.png";
 
 interface IntroductionCardsProps {
   title: string;
@@ -73,14 +72,6 @@ export default function IntroductionCards({
           }}
         >
           <div
-            // className={`${
-            //   // !upComing ? l ?"pt-[90px]" :m?"pt-[78.5px]" : "pt-[52.5px]"
-            //   !upComing && l
-            //     ? "py-[78.5px]"
-            //     : // : !upComing && m
-            //       // ? "py-[52.5px]"
-            //       !upComing && (s || m) && "pt-[40px]"
-            // }`}
             className={`${upComing && (s || m) && "pt-[57px]"} ${
               !upComing && (s || m) && "pt-[40px]"
             }`}
@@ -88,7 +79,7 @@ export default function IntroductionCards({
             <div
               className={`text-[#4b38db] font-outfitExtrabold ${
                 s || m ? "text-[20px]" : "text-[28px]"
-              } font-bold ${((upComing && s) || m) && "pt-[55px]"} ${
+              } font-bold ${upComing && (s || m) && "pt-[50px]"} ${
                 upComing
                   ? s || m
                     ? "pt-[112px]"
@@ -109,7 +100,7 @@ export default function IntroductionCards({
                   : "text-[40px] leading-[52px]"
               } font-extrabold ${
                 locale === "ko" && !upComing
-                  ? "font-pretendardExtrabold"
+                  ? "font-pretendardSemibold"
                   : "font-outfitExtrabold"
               } uppercase ${
                 l ? "w-[426px] pr-[19px] whitespace-pre" : "w-[328px] "
@@ -178,26 +169,11 @@ export default function IntroductionCards({
                   : m && title === "ABC Wallet"
                   ? "w-[460px] h-[419px] object-cover pt-[25px]"
                   : s && !(title === "ABC Wallet")
-                  ? "w-[300px] h-[324px] px-[14px] pt-[40px]"
+                  ? "w-[300px] h-[324px] pt-[40px]"
                   : s && title === "ABC Wallet"
                   ? "pt-[40px]"
                   : xs && "object-cover h-[339px]"
               }`}
-              // className={`${
-              //   title === "ABC Wallet" && l
-              //     ? "mr-[40px] w-[674px] h-[565px]"
-              //     : s || m
-              //     ? "w-[647px] h-[537px] object-cover"
-              //     : "w-[529px] h-[509px]"
-              // } ${
-              //   title === "ABC Wallet"
-              //     ? s || m
-              //       ? "pt-[30px] object-cover"
-              //       : ""
-              //     : xs
-              //     ? "object-cover h-[324px]"
-              //     : "object-scale-down h-auto rounded-bl-lg rounded-br-lg"
-              // }`}
             />
           </div>
         )}

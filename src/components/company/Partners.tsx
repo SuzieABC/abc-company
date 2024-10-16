@@ -44,13 +44,7 @@ export default function Partners() {
                   y: { duration: 1 },
                 }}
               >
-                <div
-                  key={item.id}
-
-                  // className={`bg-[#F0F1F4] flex justify-center items-center aspect-[1] ${
-                  //   s ? "rounded-[3.63px]" : "rounded-[12.8px]"
-                  // } p-[1rem]`}
-                >
+                <div key={item.id}>
                   <Image
                     src={s || m ? item.image_s : item.image}
                     alt={item.name}

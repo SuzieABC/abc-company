@@ -23,7 +23,6 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
         backgroundImage: `url(${
           s || m ? company_bottom_shape_S.src : company_bottom_shape_L.src
         })`,
-        // backgroundSize: "cover",
         backgroundPosition: "center top 25%",
         backgroundRepeat: "no-repeat",
       }}
@@ -95,8 +94,8 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
           <p
             className={`text-center text-white ${
               locale === "ko" ? "font-pretendard" : "font-interLight"
-            } leading-7 ${s && "whitespace-pre"} ${
-              s || m ? "text-[17px] px-[38px]" : "text-[22px]"
+            } leading-[22.1px] ${s && "whitespace-pre"} ${
+              s || m ? "text-[17px]" : "text-[22px]"
             }`}
           >
             {desc}
