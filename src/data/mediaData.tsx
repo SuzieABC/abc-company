@@ -6,8 +6,17 @@ import media_5 from "@/assets/images/company/media/media_5.png";
 import media_6 from "@/assets/images/company/media/media_6.png";
 import media_7 from "@/assets/images/company/media/media_7.png";
 import media_8 from "@/assets/images/company/media/media_8.png";
+import media_9 from "@/assets/images/company/media/media_9.png";
 
 const MEDIA_LIST = [
+  {
+    id: 9,
+    title: "식스네트워크, 안랩블록체인컴퍼니(ABC)와 파트너십 체결",
+    date: "2024.10.16",
+    tag: "News",
+    url: "https://n.news.naver.com/mnews/article/018/0005860053?sid=105",
+    image: media_9,
+  },
   {
     id: 8,
     title: "안랩블록체인컴퍼니 “ABC월렛, 웹2 사용자들의 쉬운 온보딩 돕겠다”",
