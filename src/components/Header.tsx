@@ -211,10 +211,10 @@ export default function Header() {
               </nav>
               <div className="flex justify-center text-white text-center">
                 <span
-                  className={`px-[20px] py-[13px] font-pretendard text-center text-base  cursor-pointer tracking-[0.16px] ${
+                  className={`px-[20px] py-[13px] text-center text-base  cursor-pointer tracking-[0.16px] ${
                     !pathname.includes("/en/")
-                      ? "font-semibold"
-                      : "text-white/50 font-light"
+                      ? "font-pretendardSemibold"
+                      : "text-white/50 font-pretendardLight"
                   }`}
                   onClick={() => handleLocaleChange("ko")}
                 >
@@ -222,10 +222,10 @@ export default function Header() {
                 </span>
                 <div className="w-[1px] h-[20px] bg-white/30 mt-[13.5px]"></div>
                 <span
-                  className={`px-[20px] py-[13px] font-outfitLight text-center text-base uppercase cursor-pointer tracking-[0.16px] ${
+                  className={`px-[20px] py-[13px] text-center text-base uppercase cursor-pointer tracking-[0.16px] ${
                     pathname.includes("/en/")
-                      ? "font-semibold"
-                      : "text-white/50 font-light"
+                      ? "font-outfitSemibold"
+                      : "text-white/50 font-outfitLight"
                   }`}
                   onClick={() => handleLocaleChange("en")}
                 >

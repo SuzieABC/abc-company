@@ -28,56 +28,56 @@ const interLight = localFont({
 });
 
 const pretendard = localFont({
-  src: "./../assets/fonts/Pretendard-Medium.otf",
+  src: "./../assets/fonts/Pretendard-Medium.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendard",
 });
 
 const pretendardLight = localFont({
-  src: "./../assets/fonts/Pretendard-Light.otf",
+  src: "./../assets/fonts/Pretendard-Light.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendardSemibold",
 });
 
 const pretendardSemibold = localFont({
-  src: "./../assets/fonts/Pretendard-SemiBold.otf",
+  src: "./../assets/fonts/Pretendard-SemiBold.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendardSemibold",
 });
 
 const pretendardExtrabold = localFont({
-  src: "./../assets/fonts/Pretendard-ExtraBold.otf",
+  src: "./../assets/fonts/Pretendard-ExtraBold.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendardExtrabold",
 });
 
 const outfit = localFont({
-  src: "./../assets/fonts/Outfit-Medium.ttf",
+  src: "./../assets/fonts/Outfit-Medium.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-outfit",
 });
 
 const outfitLight = localFont({
-  src: "./../assets/fonts/Outfit-Light.ttf",
+  src: "./../assets/fonts/Outfit-Light.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-outfitLight",
 });
 
 const outfitSemibold = localFont({
-  src: "./../assets/fonts/Outfit-SemiBold.ttf",
+  src: "./../assets/fonts/Outfit-SemiBold.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-outfitSemibold",
 });
 
 const outfitExtrabold = localFont({
-  src: "./../assets/fonts/Outfit-ExtraBold.ttf",
+  src: "./../assets/fonts/Outfit-ExtraBold.woff",
   display: "swap",
   weight: "45 920",
   variable: "--font-outfitExtrabold",
