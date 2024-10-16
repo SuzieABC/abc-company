@@ -12,12 +12,15 @@
       "waas": {
         "title": "ABC WaaS",
         "highlight": "wallet-as-a- \nService \nfor Business",
-        "detail": "Experience unparalleled security \nand effortless integration with \nABC WaaS, transforming \nyour Web2 business to Web3"
+        "detail": "Experience unparalleled security \nand effortless integration with \nABC WaaS, transforming \nyour Web2 business to Web3",
+        "detail_1440": "Experience unparalleled security and \neffortless integration with ABC WaaS, \ntransforming your Web2 business to Web3"
+        
       },
       "BIC": {
         "title": "BICScan",
         "highlight": "Blockchain \nDefense \nIntelligence",
-        "detail": "Blockchain Intelligence | \nMulti-engine | \nReliable Risk Scoring"
+        "detail": "Web3 Threat Analysis Tool provides \npowerful blockchain security services. \nYou can experience an intuitive \nand user-friendly interface.",
+        "detail_1024": "Web3 Threat Analysis Tool \nprovides powerful blockchain \nsecurity services. \nYou can experience an intuitive \nand user-friendly interface."
       },
       "KYT": {
         "title": "Ultimate KYT Solution",
