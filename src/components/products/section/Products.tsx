@@ -5,11 +5,11 @@ import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import ABC_Wallet_img from "@/assets/images/products/cards/iphone_L.png";
 import ABC_WaaS_img from "@/assets/images/products/waasImage2.svg";
 import BICScan_img from "@/assets/images/products/bicImage2.svg";
-// import test from "@/assets/images/products/test.png";
 
 interface ProductsProps {
   walletTitle: string;
   walletHighlight: string;
+  walletHighlight_1024: string;
   walletDetail: string;
   waasTitle: string;
   waasHighlight: string;
@@ -31,6 +31,7 @@ export default function Products({
   walletDetail,
   waasTitle,
   waasHighlight,
+  walletHighlight_1024,
   waasDetail,
   waasDetail_1440,
   bicTitle,
@@ -64,7 +65,7 @@ export default function Products({
         >
           <IntroductionCards
             title={walletTitle}
-            highlight={walletHighlight}
+            highlight={l && en ? walletHighlight_1024 : walletHighlight}
             detail={walletDetail}
             img={ABC_Wallet_img}
             button={button}

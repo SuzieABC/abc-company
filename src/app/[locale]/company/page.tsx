@@ -10,7 +10,6 @@ export default async function Page({
 }: {
   params: { locale: LocaleTypes };
 }) {
-  // Make sure to use the correct namespace here.
   const { t } = await createTranslation(locale, "company");
 
   return (
@@ -21,6 +20,8 @@ export default async function Page({
         desc_t={t("description_t")}
         desc_l={t("description_l")}
         desc_xl={t("description_xl")}
+        desc_m_1={t("description_t_m_1")}
+        desc_m_2={t("description_t_m_2")}
         locale={locale}
       />
       <Partners />

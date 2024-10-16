@@ -44,7 +44,7 @@ export default function MainCompanyInfo({
               ? "text-3xl"
               : m
               ? "text-center text-white text-base font-light font-inter leading-tight"
-              : "text-base leading-tight whitespace-pre"
+              : "text-base leading-tight"
           } ${locale === "ko" ? "font-pretendard" : "font-interLight"}`}
         >
           {company_detail}

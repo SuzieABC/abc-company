@@ -11,7 +11,6 @@ export default async function Page({
 }: {
   params: { locale: LocaleTypes };
 }) {
-  // Make sure to use the correct namespace here.
   const { t } = await createTranslation(locale, "products");
 
   return (
@@ -41,6 +40,7 @@ export default async function Page({
       <Products
         walletTitle={t(`item.wallet.title`)}
         walletHighlight={t("item.wallet.highlight")}
+        walletHighlight_1024={t("item.wallet.highlight_1024")}
         walletDetail={t("item.wallet.detail")}
         waasTitle={t(`item.waas.title`)}
         waasHighlight={t("item.waas.highlight")}
