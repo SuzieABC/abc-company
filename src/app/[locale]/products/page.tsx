@@ -45,9 +45,11 @@ export default async function Page({
         waasTitle={t(`item.waas.title`)}
         waasHighlight={t("item.waas.highlight")}
         waasDetail={t("item.waas.detail")}
+        waasDetail_1440={t("item.waas.detail_1440")}
         bicTitle={t(`item.BIC.title`)}
         bicHighlight={t("item.BIC.highlight")}
         bicDetail={t("item.BIC.detail")}
+        bicDetail_1024={t("item.BIC.detail_1024")}
         kytTitle={t("item.KYT.title")}
         kytHighlight={t("item.KYT.highlight")}
         button={t("products_button")}

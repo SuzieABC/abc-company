@@ -38,7 +38,8 @@ export default function IntroductionCards({
   const xs = windowWidth < 360;
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1439;
+  const l = windowWidth < 1440 && windowWidth > 1023;
+  const xl = windowWidth > 1439;
 
   return (
     <div
@@ -56,8 +57,8 @@ export default function IntroductionCards({
         className={`bg-[#F0F1F4] rounded-[32px] flex items-center ${
           upComing || s || m
             ? "flex-col items-center"
-            : l
-            ? "justify-between pl-[100px]"
+            : xl
+            ? "justify-between pl-[100px] pr-[40px]"
             : "justify-between pl-[60px]"
         }  `}
       >
@@ -72,19 +73,22 @@ export default function IntroductionCards({
           }}
         >
           <div
-            className={`${
-              // !upComing ? l ?"pt-[90px]" :m?"pt-[78.5px]" : "pt-[52.5px]"
-              !upComing && l
-                ? "py-[78.5px]"
-                : // : !upComing && m
-                  // ? "py-[52.5px]"
-                  !upComing && (s || m) && "pt-[40px]"
+            // className={`${
+            //   // !upComing ? l ?"pt-[90px]" :m?"pt-[78.5px]" : "pt-[52.5px]"
+            //   !upComing && l
+            //     ? "py-[78.5px]"
+            //     : // : !upComing && m
+            //       // ? "py-[52.5px]"
+            //       !upComing && (s || m) && "pt-[40px]"
+            // }`}
+            className={`${upComing && (s || m) && "pt-[57px]"} ${
+              !upComing && (s || m) && "pt-[40px]"
             }`}
           >
             <div
               className={`text-[#4b38db] font-outfitExtrabold ${
                 s || m ? "text-[20px]" : "text-[28px]"
-              } font-bold ${
+              } font-bold ${((upComing && s) || m) && "pt-[55px]"} ${
                 upComing
                   ? s || m
                     ? "pt-[112px]"
@@ -117,13 +121,13 @@ export default function IntroductionCards({
             </div>
             {!s && (
               <div
-                className={`text-black font-normal ${
+                className={`whitespace-pre text-black font-normal ${
                   locale === "ko" ? "font-pretendardLight" : "font-inter"
                 } mt-[20px] m-auto ${l ? "w-[426px]" : "w-[318px]"} ${
                   m
                     ? "text-[16px] leading-[22.4px]"
                     : "text-[20px] leading-[27.2px]"
-                } ${!highlight.includes("wallet-as") && "whitespace-pre"}`}
+                }`}
               >
                 <p>{detail}</p>
               </div>
@@ -148,14 +152,10 @@ export default function IntroductionCards({
           </div>
         </motion.div>
         {img && (
-          <div
-            className={`flex justify-end ${
-              !(title === "ABC Wallet") ? "px-[14px] pt-[40px]" : "pt-[27.95px]"
-            }`}
-          >
+          <div className={`flex justify-end`}>
             <Image
               src={
-                title === "ABC Wallet"
+                title === "ABC Wallet" && (xl || m)
                   ? iphoneXL
                   : title === "ABC WaaS" && l
                   ? wassXL
@@ -167,22 +167,37 @@ export default function IntroductionCards({
                   ? BICScan_img_mobile
                   : img
               }
-              alt="ABC_wallet_img"
-              className={`${
-                title === "ABC Wallet" && l
-                  ? "mr-[40px] w-[647px] h-[537px]"
-                  : s || m
-                  ? "w-[647px] h-[537px] object-cover"
-                  : "w-[529px] h-[509px]"
-              } ${
-                title === "ABC Wallet"
-                  ? s || m
-                    ? "pt-[30px] object-cover"
-                    : ""
-                  : xs
-                  ? "object-cover h-[324px]"
-                  : "object-scale-down h-auto rounded-bl-lg rounded-br-lg"
+              alt={title}
+              className={`${l && xl ? "pr-[40px]" : ""} ${
+                xl
+                  ? "w-[665px] h-[565px]"
+                  : l
+                  ? "w-[556px] h-[549px] object-left-bottom object-cover"
+                  : m && !(title === "ABC Wallet")
+                  ? "w-[300px] h-[324px] pt-[25px]"
+                  : m && title === "ABC Wallet"
+                  ? "w-[460px] h-[419px] object-cover pt-[25px]"
+                  : s && !(title === "ABC Wallet")
+                  ? "w-[300px] h-[324px] px-[14px] pt-[40px]"
+                  : s && title === "ABC Wallet"
+                  ? "pt-[40px]"
+                  : xs && "object-cover h-[339px]"
               }`}
+              // className={`${
+              //   title === "ABC Wallet" && l
+              //     ? "mr-[40px] w-[674px] h-[565px]"
+              //     : s || m
+              //     ? "w-[647px] h-[537px] object-cover"
+              //     : "w-[529px] h-[509px]"
+              // } ${
+              //   title === "ABC Wallet"
+              //     ? s || m
+              //       ? "pt-[30px] object-cover"
+              //       : ""
+              //     : xs
+              //     ? "object-cover h-[324px]"
+              //     : "object-scale-down h-auto rounded-bl-lg rounded-br-lg"
+              // }`}
             />
           </div>
         )}

@@ -19,6 +19,8 @@ export default async function Page({
         desc={t("description")}
         desc_m={t("description_m")}
         desc_t={t("description_t")}
+        desc_l={t("description_l")}
+        desc_xl={t("description_xl")}
         locale={locale}
       />
       <Partners />

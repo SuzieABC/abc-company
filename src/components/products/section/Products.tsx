@@ -14,9 +14,11 @@ interface ProductsProps {
   waasTitle: string;
   waasHighlight: string;
   waasDetail: string;
+  waasDetail_1440: string;
   bicTitle: string;
   bicHighlight: string;
   bicDetail: string;
+  bicDetail_1024: string;
   kytTitle: string;
   kytHighlight: string;
   button: string;
@@ -30,9 +32,11 @@ export default function Products({
   waasTitle,
   waasHighlight,
   waasDetail,
+  waasDetail_1440,
   bicTitle,
   bicHighlight,
   bicDetail,
+  bicDetail_1024,
   kytTitle,
   kytHighlight,
   button,
@@ -41,8 +45,10 @@ export default function Products({
   const windowWidth = useWindowWidth();
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  const l = windowWidth > 1023;
+  const l = windowWidth < 1440 && windowWidth > 1023;
+  const xl = windowWidth > 1439;
 
+  const en = locale === "en";
   return (
     <div
       className={`flex flex-col justify-center items-center  pb-[40px] ${
@@ -76,7 +82,7 @@ export default function Products({
           <IntroductionCards
             title={waasTitle}
             highlight={waasHighlight}
-            detail={waasDetail}
+            detail={xl && en ? waasDetail_1440 : waasDetail}
             img={ABC_WaaS_img}
             button={button}
             locale={locale}
@@ -93,7 +99,7 @@ export default function Products({
           <IntroductionCards
             title={bicTitle}
             highlight={bicHighlight}
-            detail={bicDetail}
+            detail={en && l ? bicDetail_1024 : bicDetail}
             img={BICScan_img}
             button={button}
             locale={locale}
