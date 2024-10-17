@@ -57,7 +57,7 @@ export default function TopPage({
             <Image
               src={s ? dice_360 : m ? dice_600 : dice_600}
               alt="dice"
-              className={`${s ? "px-[14px]" : l || xl ? "px-[10%]" : ""}`}
+              className={`${s ? "px-[14px]" : l || xl ? "px-[11%]" : ""}`}
               width={s ? 332 : m ? 375 : l ? 678 : 754}
               height={s ? 286 : m ? 302 : l ? 531 : 612}
             />
