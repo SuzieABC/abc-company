@@ -164,7 +164,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div className="flex flex flex-col">
+            <div className="flex flex-col">
               <Link
                 href={pathname.includes("en") ? "/en/company" : "/company"}
                 className={menuHeaderStyleMobile}
@@ -198,7 +198,7 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            <div className="flex flex flex-col">
+            <div className="flex flex-col">
               <div className={menuHeaderStyleMobile}>
                 {t("footer.connect.header")}
               </div>
