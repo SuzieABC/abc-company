@@ -45,9 +45,6 @@ export default function MainTopPage({
           top: "50%",
           left: "50%",
         }} // 중앙 정렬
-        // className={`absolute z-0
-        //   ${s ? " min-w-[1200px]" : "w-[1500px]"}
-        // `}
         className={`absolute z-0
           ${s ? " min-w-[1500px]" : m ? "w-[2000px]" : "w-[3000px]"}
         `}
