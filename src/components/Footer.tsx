@@ -16,10 +16,6 @@ export default function Footer() {
   const windowWidth = useWindowWidth();
   const pathname = usePathname();
 
-  // const s = windowWidth < 600;
-  // const m = windowWidth > 599 && windowWidth < 1024;
-  // const l = windowWidth > 1023;
-
   const menuHeaderStyle = `text-white px-[20px] text-black text-base font-bold font-outfitSemibold uppercase tracking-[0.14px] mr-[28px] py-[10px] smooth-scroll`;
   const menuStyle =
     "text-white py-[10px] px-[20px] text-white/70 text-base font-light font-interLight tracking-[0.14px] cursor-pointer smooth-scroll";
@@ -45,8 +41,6 @@ export default function Footer() {
 
               <Link
                 href={`/${locale}/products#abcWallet`}
-                /**Scroll to the section */
-                // onClick={() => scrollTo("abcWallet")}
                 className={menuStyle}
               >
                 <span>{t("footer.products.item1")}</span>
