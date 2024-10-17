@@ -31,7 +31,7 @@ export default function Footer() {
     return (
       <footer className="p-[40px] max-w-[1440px] mx-auto">
         <div className="flex flex-wrap justify-between items-start">
-          <div className="flex flex-row justify-between items-center min-w-[245px] w-[245px] cursor-pointer">
+          <div className="flex flex-row justify-between items-center min-w-[245px] w-[245px]">
             <Image src={ciCompanyIcon} alt="logo" className="w-[54px]" />
             <Image src={ciCompanyImage} alt="logo" className="w-[180px]" />
           </div>
@@ -125,7 +125,7 @@ export default function Footer() {
     return (
       <footer className={`px-[16px] pt-[40px] max-w-[1440px] mx-auto`}>
         <div className="flex flex-col items-start">
-          <div className="flex flex-row justify-between items-center min-w-[175px] w-[175px] cursor-pointer pb-[40px]">
+          <div className="flex flex-row justify-between items-center min-w-[175px] w-[175px] pb-[40px]">
             <Image
               src={ciCompanyIcon}
               alt="company logo"
