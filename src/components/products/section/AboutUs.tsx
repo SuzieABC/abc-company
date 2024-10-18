@@ -14,8 +14,6 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
   const windowWidth = useWindowWidth();
 
   const s = windowWidth < 1024;
-  // const m = windowWidth > 1023 && windowWidth < 1440;
-  // const l = windowWidth > 1439;
 
   return (
     <div className=" w-screen" style={{ position: "relative" }}>
@@ -73,6 +71,7 @@ export default function AboutUs({ buttonText, locale }: AboutUsProps) {
             className={`py-[16px] bg-white rounded-[10px] justify-center items-center gap-2 inline-flex ${
               s ? "mb-[110px] px-[38px]" : "mb-[180px] px-[51px]"
             }`}
+            aria-label={buttonText}
           >
             <div
               className={`text-black ${

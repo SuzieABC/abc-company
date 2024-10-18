@@ -15,9 +15,20 @@ export default function MainCompanyInfo({
 }: MainCompanyInfoProps) {
   const windowWidth = useWindowWidth();
 
-  // const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
   const l = windowWidth > 1023;
+
+  const titleClass = l
+    ? "mx-0 text-[56px] pb-[40px]"
+    : m
+    ? "text-[32px] leading-[38.40px] pb-[20px]"
+    : "w-[208px] text-[32px] leading-[38.40px] pb-[20px]";
+
+  const detailClass = l
+    ? "text-3xl"
+    : m
+    ? "text-base font-light leading-tight"
+    : "text-base leading-tight";
 
   return (
     <div
@@ -28,24 +39,14 @@ export default function MainCompanyInfo({
     >
       <div className="text-center flex flex-col items-center">
         <p
-          className={`text-center text-white font-semibold font-outfitSemibold ${
-            l
-              ? "mx-0 text-[56px] pb-[40px]"
-              : m
-              ? "text-[32px] leading-[38.40px] pb-[20px]"
-              : "w-[208px] text-[32px] leading-[38.40px] pb-[20px]"
-          }`}
+          className={`text-center text-white font-semibold font-outfitSemibold ${titleClass}`}
         >
           {company_name}
         </p>
         <p
-          className={`text-center text-white  font-[300] ${
-            l
-              ? "text-3xl"
-              : m
-              ? "text-center text-white text-base font-light font-inter leading-tight"
-              : "text-base leading-tight"
-          } ${locale === "ko" ? "font-pretendard" : "font-interLight"}`}
+          className={`text-center text-white font-[300] ${detailClass} ${
+            locale === "ko" ? "font-pretendard" : "font-interLight"
+          }`}
         >
           {company_detail}
         </p>

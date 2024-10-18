@@ -12,10 +12,9 @@ export default function Button({ button, url, locale }: ButtonProps) {
 
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  // const l = windowWidth > 1023;
 
   return (
-    <Link href={url} target="_blank">
+    <Link href={url} target="_blank" aria-label={button}>
       <div
         className={`${
           s || m ? "h-[43px] px-[20px]" : "h-[56px] px-[36px]"

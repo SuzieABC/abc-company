@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   usePathname,
-  /* useParams, */
   useRouter,
   useSelectedLayoutSegments,
 } from "next/navigation";
@@ -14,13 +13,11 @@ import Image from "next/image";
 
 interface ChnageLocaleProps {
   bgColor: string;
-  isMobile?: boolean;
 }
 
 const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
   const router = useRouter();
   const windowWidth = useWindowWidth();
-  /* const params = useParams(); */
   const urlSegments = useSelectedLayoutSegments();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 드롭다운 열림 여부 상태
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -37,21 +34,21 @@ const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
 
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsDropdownOpen(false);
-      }
-    };
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(e.target as Node)
+    ) {
+      setIsDropdownOpen(false);
+    }
+  }, []);
 
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [handleClickOutside]);
 
   return (
     <>
