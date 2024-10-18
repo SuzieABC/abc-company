@@ -1,6 +1,6 @@
 "use client";
-import company_bottom_shape_L from "@/assets/images/company/Partner_pc.svg";
-import company_bottom_shape_S from "@/assets/images/company/Partner_mo.svg";
+import company_bottom_shape_L from "@/assets/images/company/Partner_shape_pc.svg";
+import company_bottom_shape_S from "@/assets/images/company/partner_shape_mobile_image.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
 

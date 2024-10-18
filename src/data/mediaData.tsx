@@ -1,12 +1,12 @@
-import media_1 from "@/assets/images/company/media/media_1.png";
-import media_2 from "@/assets/images/company/media/media_2.png";
-import media_3 from "@/assets/images/company/media/media_3.png";
-import media_4 from "@/assets/images/company/media/media_4.png";
-import media_5 from "@/assets/images/company/media/media_5.png";
-import media_6 from "@/assets/images/company/media/media_6.png";
-import media_7 from "@/assets/images/company/media/media_7.png";
-import media_8 from "@/assets/images/company/media/media_8.png";
-import media_9 from "@/assets/images/company/media/media_9.png";
+import media_1 from "@/assets/images/company/media_images/media_1.png";
+import media_2 from "@/assets/images/company/media_images/media_2.png";
+import media_3 from "@/assets/images/company/media_images/media_3.png";
+import media_4 from "@/assets/images/company/media_images/media_4.png";
+import media_5 from "@/assets/images/company/media_images/media_5.png";
+import media_6 from "@/assets/images/company/media_images/media_6.png";
+import media_7 from "@/assets/images/company/media_images/media_7.png";
+import media_8 from "@/assets/images/company/media_images/media_8.png";
+import media_9 from "@/assets/images/company/media_images/media_9.png";
 
 const MEDIA_LIST = [
   {

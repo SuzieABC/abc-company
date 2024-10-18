@@ -8,7 +8,7 @@ import {
   useSelectedLayoutSegments,
 } from "next/navigation";
 import worldIcon from "@/assets/icons/world_icon.png";
-import worldIcon_colour from "@/assets/icons/world_light.svg";
+import worldIcon_colour from "@/assets/icons/world_black_icon.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import Image from "next/image";
 

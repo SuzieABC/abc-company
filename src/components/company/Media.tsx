@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import MEDIA_LIST from "@/data/mediaData";
-import arrowDown from "@/assets/icons/arrow_down.svg";
+import arrowDown from "@/assets/icons/arrow_down_icon.svg";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 
 interface MediaProps {

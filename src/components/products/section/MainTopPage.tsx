@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Lottie from "react-lottie-player";
 import products_top from "../../../../public/animations/products_top.json";
 import product_top_bg_pc from "@/assets/images/products/product_top_bg_pc.svg";
-import product_top_bg_mo from "@/assets/images/products/products_top_bg_mo.svg";
+import product_top_bg_mo from "@/assets/images/products/products_top_bg_mobile.svg";
 
 interface MainTopPageProps {
   title: string;

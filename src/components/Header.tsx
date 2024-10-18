@@ -9,11 +9,11 @@ import { useTranslation } from "@/utils/localization/client";
 import type { LocaleTypes } from "@/utils/localization/settings";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { usePathname } from "next/navigation";
-import logo_transparent from "@/assets/images/logo_transparent.svg";
-import logo_colour from "@/assets/images/logo_colour.svg";
-import menu from "@/assets/icons/Menu.svg";
-import menu_colour from "@/assets/icons/Menu_colour.svg";
-import x from "@/assets/icons/x.svg";
+import logo_transparent from "@/assets/images/company_logo_white_image.svg";
+import logo_colour from "@/assets/images/company_logo_black_image.svg";
+import menu from "@/assets/icons/hamburger_menu_icon.svg";
+import menu_colour from "@/assets/icons/hamburger_menu_black_icon.svg";
+import x from "@/assets/icons/closing_button_icon.svg";
 
 export default function Header() {
   const windowWidth = useWindowWidth();

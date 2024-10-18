@@ -4,13 +4,13 @@ import Button from "./Button";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import iphoneXL from "@/assets/images/products/cards/iphone_XL.png";
-import wassXL from "@/assets/images/products/cards/wass_XL.png";
-import bicXL from "@/assets/images/products/cards/bic_XL.png";
-import comingSoon from "@/assets/images/products/AML.svg";
-import comingSoonM from "@/assets/images/products/AML_mo.svg";
-import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_M.png";
-import BICScan_img_mobile from "@/assets/images/products/cards/bic_M.png";
+import iphoneXL from "@/assets/images/products/cards/iphone_xl_image.png";
+import wassXL from "@/assets/images/products/cards/wass_xl_image.png";
+import bicXL from "@/assets/images/products/cards/bic_xl_image.png";
+import comingSoon from "@/assets/images/products/kty_bg_pc.svg";
+import comingSoonM from "@/assets/images/products/kty_bg_mobile.svg";
+import ABC_Waas_img_mobile from "@/assets/images/products/cards/wass_m_image.png";
+import BICScan_img_mobile from "@/assets/images/products/cards/bic_m_image.png";
 
 interface IntroductionCardsProps {
   title: string;

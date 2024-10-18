@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "@/assets/images/SEO.png",
+        url: "@/assets/images/seo.png",
         alt: "AhnLab Blockchain Company Logo",
       },
     ],

@@ -4,8 +4,8 @@ import Image from "next/image";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import { motion } from "framer-motion";
 import company_top_bg from "@/assets/images/company/company_top_bg_pc.svg";
-import dice_360 from "@/assets/images/company/top/company_top_360.png";
-import dice_600 from "@/assets/images/company/top/company_top_600.png";
+import dice_360 from "@/assets/images/company/top/company_top_circle_360_image.png";
+import dice_600 from "@/assets/images/company/top/company_top_circle_600_image.png";
 
 interface TopPageProps {
   desc: string;
@@ -25,7 +25,6 @@ export default function TopPage({
   desc_l,
   desc_m_1,
   desc_m_2,
-  // desc_xl,
   locale,
 }: TopPageProps) {
   const windowWidth = useWindowWidth();

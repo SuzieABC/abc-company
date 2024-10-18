@@ -1,7 +1,7 @@
 "use client";
 
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import product_bottom_bg from "@/assets/images/products/04_about.svg";
+import product_bottom_bg from "@/assets/images/products/products_about_bg.svg";
 import { motion } from "framer-motion";
 import Link from "next/link";
 

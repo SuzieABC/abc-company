@@ -3,8 +3,8 @@
 import IntroductionCards from "@/components/products/IntroductionCards";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import ABC_Wallet_img from "@/assets/images/products/cards/iphone_L.png";
-import ABC_WaaS_img from "@/assets/images/products/waasImage2.svg";
-import BICScan_img from "@/assets/images/products/bicImage2.svg";
+import ABC_WaaS_img from "@/assets/images/products/waas_image.svg";
+import BICScan_img from "@/assets/images/products/bic_image.svg";
 
 interface ProductsProps {
   walletTitle: string;
