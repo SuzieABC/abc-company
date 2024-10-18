@@ -2,7 +2,7 @@
 
 import IntroductionCards from "@/components/products/IntroductionCards";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import ABC_Wallet_img from "@/assets/images/products/cards/iphone_L.png";
+import ABC_Wallet_img from "@/assets/images/products/cards/iphone_l_image.png";
 import ABC_WaaS_img from "@/assets/images/products/waas_image.svg";
 import BICScan_img from "@/assets/images/products/bic_image.svg";
 
