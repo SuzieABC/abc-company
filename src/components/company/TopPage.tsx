@@ -34,6 +34,28 @@ export default function TopPage({
   const l = windowWidth > 1023 && windowWidth < 1440;
   const xl = windowWidth > 1439;
 
+  const getDescriptionContent = () => {
+    if (s) {
+      return (
+        <>
+          {locale === "ko" && <p className="whitespace-pre">{desc_m_1}</p>}
+          {locale === "ko" ? desc_m_2 : desc_m}
+        </>
+      );
+    } else if (m) {
+      return (
+        <>
+          {locale === "ko" && <p className="whitespace-pre">{desc_m_1}</p>}
+          {locale === "ko" ? desc_m_2 : desc_t}
+        </>
+      );
+    } else if (l) {
+      return desc_l;
+    } else {
+      return desc;
+    }
+  };
+
   return (
     <div
       id="about"
@@ -94,25 +116,7 @@ export default function TopPage({
                     : "font-interLight"
                 } leading-snug `}
               >
-                {s ? (
-                  <span>
-                    {locale === "ko" && (
-                      <p className="whitespace-pre">{desc_m_1}</p>
-                    )}
-                    {locale === "ko" ? desc_m_2 : desc_m}
-                  </span>
-                ) : m ? (
-                  <span>
-                    {locale === "ko" && (
-                      <p className="whitespace-pre">{desc_m_1}</p>
-                    )}
-                    {locale === "ko" ? desc_m_2 : desc_t}
-                  </span>
-                ) : l ? (
-                  desc_l
-                ) : (
-                  desc
-                )}
+                {getDescriptionContent()}
               </div>
             </div>
           </motion.div>

@@ -13,20 +13,28 @@ interface MediaProps {
 export default function Media({ button }: MediaProps) {
   const initialItemsToShow = 6;
   const [itemsToShow, setItemsToShow] = useState(initialItemsToShow);
-  const [isExpanded, setIsExpanded] = useState(false); // 상태 추가
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const windowWidth = useWindowWidth();
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  // const l = windowWidth > 1023;
 
   const handleShowMore = () => {
-    if (!isExpanded) {
-      setItemsToShow((prev) => prev + initialItemsToShow);
+    const totalItems = MEDIA_LIST.length;
+
+    if (isExpanded) {
+      setItemsToShow(initialItemsToShow);
+      setIsExpanded(false);
     } else {
-      setItemsToShow(initialItemsToShow); // 처음 6개로 되돌리기
+      setItemsToShow((prev) => {
+        const newCount = prev + initialItemsToShow;
+        if (newCount >= totalItems) {
+          setIsExpanded(true);
+          return totalItems;
+        }
+        return newCount;
+      });
     }
-    setIsExpanded((prev) => !prev); // 상태 토글
   };
 
   return (
@@ -37,12 +45,12 @@ export default function Media({ button }: MediaProps) {
       id="media"
     >
       <div
-        className={`bg-[#F0F1F4] text-black  max-w-[1440px] w-[100%] max-auto ${
+        className={`bg-[#F0F1F4] text-black max-w-[1440px] w-[100%] max-auto ${
           s || m ? "px-[16px]" : "px-[40px]"
         }`}
       >
         <div
-          className={`text-black font-extrabold font-outfitExtrabold uppercase leading-[70px]   ${
+          className={`text-black font-extrabold font-outfitExtrabold uppercase leading-[70px] ${
             s || m
               ? "pt-[60px] text-[28px] pb-[40px] text-center"
               : "pt-[160px] text-[50px] pb-[58px]"
@@ -53,7 +61,7 @@ export default function Media({ button }: MediaProps) {
         <div
           className={`grid ${
             s ? "grid-cols-1" : m ? "grid-cols-2" : "grid-cols-3"
-          }    gap-3`}
+          } gap-3`}
         >
           {MEDIA_LIST?.slice(0, itemsToShow).map((item) => (
             <a
@@ -82,7 +90,7 @@ export default function Media({ button }: MediaProps) {
                   overflow: "hidden",
                   wordBreak: "break-word",
                 }}
-                className={`px-[19px] pt-[21px]  text-black font-pretendardSemibold line-clamp-2 break-word ${
+                className={`px-[19px] pt-[21px] text-black font-pretendardSemibold line-clamp-2 break-word ${
                   s || m
                     ? "text-[17px] leading-[22.78px] mb-[16px]"
                     : "text-[23.14px] leading-[31.01px] mb-[58px]"
@@ -98,7 +106,6 @@ export default function Media({ button }: MediaProps) {
                     ? "mb-[22px] text-[12.125px] py-[9.64px] px-[19px]"
                     : "mb-[49px] text-[14.09px] py-[9.64px] px-[19px]"
                 }`}
-                onClick={handleShowMore} // 버튼 클릭 시 상태 변경
               >
                 <div className="uppercase font-outfit">{item.tag}</div>
               </button>
@@ -116,6 +123,7 @@ export default function Media({ button }: MediaProps) {
               s || m ? "text-[16px]" : "text-[21px]"
             }`}
             onClick={handleShowMore}
+            aria-label="Show more media items"
           >
             {button}
             <Image
@@ -123,7 +131,7 @@ export default function Media({ button }: MediaProps) {
               alt="arrow down icon"
               className={`ml-[14px] transform ${
                 isExpanded ? "rotate-180" : ""
-              }`} // 아이콘 회전
+              }`}
             />
           </span>
         </div>

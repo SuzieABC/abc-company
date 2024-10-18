@@ -44,13 +44,11 @@ export default function Partners() {
                   y: { duration: 1 },
                 }}
               >
-                <div key={item.id}>
-                  <Image
-                    src={s || m ? item.image_s : item.image}
-                    alt={item.name}
-                    className="mix-blend-multiply w-full"
-                  />
-                </div>
+                <Image
+                  src={s || m ? item.image_s : item.image}
+                  alt={item.name}
+                  className="mix-blend-multiply w-full"
+                />
               </motion.div>
             ))}
           </div>

@@ -14,15 +14,39 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
 
   const s = windowWidth < 600;
   const m = windowWidth > 599 && windowWidth < 1024;
-  // const l = windowWidth > 1023;
+
+  const backgroundImage = s
+    ? company_bottom_shape_S.src
+    : company_bottom_shape_L.src;
+
+  const contactEmail = () => {
+    if (s && windowWidth > 321) {
+      return (
+        <span>
+          contact@
+          <br /> ahnlabblockchain.company
+        </span>
+      );
+    } else if (windowWidth < 322) {
+      return (
+        <span>
+          contact
+          <br />
+          @ahnlabblockchain.
+          <br />
+          company
+        </span>
+      );
+    }
+    return <span>contact@ahnlabblockchain.company</span>;
+  };
+
   return (
     <div
       id="contact"
       className="bg-[#0E0E23] w-full text-center"
       style={{
-        backgroundImage: `url(${
-          s || m ? company_bottom_shape_S.src : company_bottom_shape_L.src
-        })`,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center top 25%",
         backgroundRepeat: "no-repeat",
       }}
@@ -73,23 +97,7 @@ export default function BottomPage({ desc, locale }: BottomPageProps) {
                 : "text-[40px] leading-[50px]"
             }`}
           >
-            {windowWidth < 600 && windowWidth > 321 ? (
-              <span>
-                contact@
-                <br />
-                ahnlabblockchain.company
-              </span>
-            ) : windowWidth < 322 ? (
-              <span>
-                contact
-                <br />
-                @ahnlabblockchain.
-                <br />
-                company
-              </span>
-            ) : (
-              <span>contact@ahnlabblockchain.company</span>
-            )}
+            {contactEmail()}
           </p>
           <p
             className={`text-center text-white ${
