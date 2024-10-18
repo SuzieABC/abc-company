@@ -9,14 +9,17 @@ import {
 } from "next/navigation";
 import worldIcon from "@/assets/icons/world_icon.png";
 import worldIcon_colour from "@/assets/icons/world_light.svg";
+import useWindowWidth from "@/utils/hooks/useWindowWidth";
 import Image from "next/image";
 
 interface ChnageLocaleProps {
   bgColor: string;
+  isMobile?: boolean;
 }
 
 const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
   const router = useRouter();
+  const windowWidth = useWindowWidth();
   /* const params = useParams(); */
   const urlSegments = useSelectedLayoutSegments();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 드롭다운 열림 여부 상태
@@ -51,62 +54,90 @@ const ChangeLocale = ({ bgColor }: ChnageLocaleProps) => {
   }, [dropdownRef]);
 
   return (
-    <div className="px-5 relative">
-      {/* 공 모양 이미지 버튼 */}
-      {bgColor === "transparent" ? (
-        <Image
-          src={worldIcon} // 원하는 공 모양 이미지 경로로 수정
-          alt=""
-          className="w-[24px] h-[24px] cursor-pointer"
-          onClick={toggleDropdown}
-        />
-      ) : (
-        <Image
-          src={worldIcon_colour} // 원하는 공 모양 이미지 경로로 수정
-          alt=""
-          className="w-[24px] h-[24px] cursor-pointer"
-          onClick={toggleDropdown}
-        />
-      )}
+    <>
+      {windowWidth > 1023 ? (
+        <div className="px-5 relative">
+          {/* 공 모양 이미지 버튼 */}
+          {bgColor === "transparent" ? (
+            <Image
+              src={worldIcon} // 원하는 공 모양 이미지 경로로 수정
+              alt=""
+              className="w-[24px] h-[24px] cursor-pointer"
+              onClick={toggleDropdown}
+            />
+          ) : (
+            <Image
+              src={worldIcon_colour} // 원하는 공 모양 이미지 경로로 수정
+              alt=""
+              className="w-[24px] h-[24px] cursor-pointer"
+              onClick={toggleDropdown}
+            />
+          )}
 
-      {/* 드롭다운 메뉴 */}
-      {isDropdownOpen && (
-        <div
-          className="absolute top-10 left-[-17px] h-[88px] px-3 bg-white/90 rounded-xl shadow flex-col justify-center items-start inline-flex"
-          ref={dropdownRef}
-        >
-          <div
-            className="w-20 h-11 py-3 justify-center items-center gap-2.5 inline-flex cursor-pointer"
+          {/* 드롭다운 메뉴 */}
+          {isDropdownOpen && (
+            <div
+              className="absolute top-10 left-[-17px] h-[88px] px-3 bg-white/90 rounded-xl shadow flex-col justify-center items-start inline-flex"
+              ref={dropdownRef}
+            >
+              <div
+                className="w-20 h-11 py-3 justify-center items-center gap-2.5 inline-flex cursor-pointer"
+                onClick={() => handleLocaleChange("ko")}
+              >
+                <span
+                  className={`text-center text-base uppercase tracking-tight ${
+                    !pathname.includes("/en/")
+                      ? "text-black font-pretendardSemibold"
+                      : "text-black/50 font-pretendard"
+                  }`}
+                >
+                  한국어
+                </span>
+              </div>
+              <div className="self-stretch h-[0px] origin-top-center rotate-180 border border-black/20"></div>
+              <div
+                className="w-20 h-11 py-3 justify-center items-center gap-2.5 inline-flex cursor-pointer"
+                onClick={() => handleLocaleChange("en")}
+              >
+                <span
+                  className={`text-center text-base uppercase tracking-tight ${
+                    pathname.includes("/en/")
+                      ? "text-black font-pretendardSemibold"
+                      : "text-black/50 font-pretendard"
+                  }`}
+                >
+                  English
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex justify-center text-white text-center">
+          <span
+            className={`px-[20px] py-[13px] text-center text-base  cursor-pointer tracking-[0.16px] ${
+              !pathname.includes("/en/")
+                ? "font-pretendardSemibold"
+                : "text-white/50 font-pretendardLight"
+            }`}
             onClick={() => handleLocaleChange("ko")}
           >
-            <span
-              className={`text-center text-base uppercase tracking-tight ${
-                !pathname.includes("/en/")
-                  ? "text-black font-pretendardSemibold"
-                  : "text-black/50 font-pretendard"
-              }`}
-            >
-              한국어
-            </span>
-          </div>
-          <div className="self-stretch h-[0px] origin-top-center rotate-180 border border-black/20"></div>
-          <div
-            className="w-20 h-11 py-3 justify-center items-center gap-2.5 inline-flex cursor-pointer"
+            한국어
+          </span>
+          <div className="w-[1px] h-[20px] bg-white/30 mt-[13.5px]"></div>
+          <span
+            className={`px-[20px] py-[13px] text-center text-base uppercase cursor-pointer tracking-[0.16px] ${
+              pathname.includes("/en/")
+                ? "font-outfitSemibold"
+                : "text-white/50 font-outfitLight"
+            }`}
             onClick={() => handleLocaleChange("en")}
           >
-            <span
-              className={`text-center text-base uppercase tracking-tight ${
-                pathname.includes("/en/")
-                  ? "text-black font-pretendardSemibold"
-                  : "text-black/50 font-pretendard"
-              }`}
-            >
-              English
-            </span>
-          </div>
+            ENGLISH
+          </span>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

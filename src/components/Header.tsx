@@ -8,11 +8,6 @@ import ChangeLocale from "./ChangeLocale";
 import { useTranslation } from "@/utils/localization/client";
 import type { LocaleTypes } from "@/utils/localization/settings";
 import useWindowWidth from "@/utils/hooks/useWindowWidth";
-import {
-  /* useParams, */
-  useRouter,
-  useSelectedLayoutSegments,
-} from "next/navigation";
 import { usePathname } from "next/navigation";
 import logo_transparent from "@/assets/images/logo_transparent.svg";
 import logo_colour from "@/assets/images/logo_colour.svg";
@@ -21,9 +16,6 @@ import menu_colour from "@/assets/icons/Menu_colour.svg";
 import x from "@/assets/icons/x.svg";
 
 export default function Header() {
-  const router = useRouter();
-  const urlSegments = useSelectedLayoutSegments();
-  //   /*   const pathName = usePathname(); */
   const windowWidth = useWindowWidth();
   const locale = useParams()?.locale as LocaleTypes;
   const { t } = useTranslation(locale, "common");
@@ -51,10 +43,6 @@ export default function Header() {
 
   const handleTouchStart = () => {
     setTouchedMenuIcon(!touchedMenuIcon);
-  };
-
-  const handleLocaleChange = (newLocale: string) => {
-    router.push(`/${newLocale}/${urlSegments.join("/")}`);
   };
 
   useEffect(() => {
@@ -209,29 +197,7 @@ export default function Header() {
                   );
                 })}
               </nav>
-              <div className="flex justify-center text-white text-center">
-                <span
-                  className={`px-[20px] py-[13px] text-center text-base  cursor-pointer tracking-[0.16px] ${
-                    !pathname.includes("/en/")
-                      ? "font-pretendardSemibold"
-                      : "text-white/50 font-pretendardLight"
-                  }`}
-                  onClick={() => handleLocaleChange("ko")}
-                >
-                  한국어
-                </span>
-                <div className="w-[1px] h-[20px] bg-white/30 mt-[13.5px]"></div>
-                <span
-                  className={`px-[20px] py-[13px] text-center text-base uppercase cursor-pointer tracking-[0.16px] ${
-                    pathname.includes("/en/")
-                      ? "font-outfitSemibold"
-                      : "text-white/50 font-outfitLight"
-                  }`}
-                  onClick={() => handleLocaleChange("en")}
-                >
-                  ENGLISH
-                </span>
-              </div>
+              <ChangeLocale bgColor={bgColor} />
             </div>
           </div>
         )}
